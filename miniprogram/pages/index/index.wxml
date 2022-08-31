@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="banner">
+    <swiper style="height: {{height}}px;" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{background}}" wx:for-index="idx" wx:key="url">
+        <swiper-item>
+          <image class="banner-img-{{idx}}" src="{{item.src}}" style="height: {{height}}px" mode="widthFix" bindload="imageLoad" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="items">
+    <view wx:for="{{items}}" wx:key="url" data-url="{{item.url}}" bindtap="handleNavigate">
+      <image src="{{item.src}}" mode="widthFix" />
+    </view>
+  </view>
+</view>
