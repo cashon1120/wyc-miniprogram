@@ -12,6 +12,7 @@
   <view class="items">
     <view wx:for="{{items}}" wx:key="url" data-url="{{item.url}}" bindtap="handleNavigate">
       <image src="{{item.src}}" mode="widthFix" />
+      {{item.label}}
     </view>
   </view>
 </view>

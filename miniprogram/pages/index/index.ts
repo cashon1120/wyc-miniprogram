@@ -6,24 +6,21 @@ Page({
   data: {
     background: [
       { url: 1, src: '../../images/banner.png' },
-      { url: 2, src: '../../images/banner.png' },
-      { url: 3, src: '../../images/banner.png' },
     ],
-    indicatorDots: true,
+    indicatorDots: false,
     autoplay: false,
     vertical: false,
     interval: 2000,
     duration: 500,
     height: 0,
     items: [
-      { url: 1, src: '../../images/temp.png' },
-      { url: 2, src: '../../images/temp.png' },
-      { url: 3, src: '../../images/temp.png' },
-      { url: 4, src: '../../images/temp.png' },
-      { url: 5, src: '../../images/temp.png' },
-      { url: 6, src: '../../images/temp.png' },
-      { url: 7, src: '../../images/temp.png' },
-      { url: 8, src: '../../images/temp.png' },
+      { url: 1, src: '../../images/icon_1.png', label: '安全教育' },
+      { url: 2, src: '../../images/icon_2.png', label: '注册平台' },
+      { url: 3, src: '../../images/icon_3.png', label: '租车买车' },
+      { url: 4, src: '../../images/icon_4.png', label: '租房' },
+      { url: 5, src: '../../images/icon_5.png', label: '充电' },
+      { url: 6, src: '../../images/icon_6.png', label: '法律援助' },
+      { url: 7, src: '../../images/icon_7.png', label: '打车' },
     ]
   },
   imageLoad: function () { //获取图片真实宽度  

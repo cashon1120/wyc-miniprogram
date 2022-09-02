@@ -4,9 +4,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "成都网约车",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#00AD81",
+    "navigationBarTitleText": "成都出行",
+    "navigationBarTextStyle": "white"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
