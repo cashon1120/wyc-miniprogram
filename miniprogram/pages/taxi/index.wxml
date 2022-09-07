@@ -1,0 +1,30 @@
+<!--pages/taxi/index.wxml-->
+<view class="mapContainer">
+    <map id="map" class="map" longitude="{{center.longitude}}" latitude="{{center.latitude}}"  bindregionchange="bindregionchange"></map>
+    <view class="content">
+        <view class="content-title">{{startAddress}}
+        </view>
+        <view class="content-line"></view>
+        <view class="content-dotted"></view>
+    </view>
+</view>
+
+<view class="address">
+    <view class="select-address">
+        <view class="dotted start"></view>
+        <text class="start-address">{{startAddress}}</text>
+        <text class="start-address-info">上车 ></text>
+    </view>
+    <view class="select-address end"  bindtap="hanleNavigate">
+        <view class="dotted end"></view>
+        <text>输入你的目的地</text>
+    </view>
+
+    <view class="service-list-wrapper">
+        <view>
+            <view wx:for="{{serviceType}}" wx:key="value">{{item.name}}</view>
+        </view>
+    </view>
+
+
+</view>

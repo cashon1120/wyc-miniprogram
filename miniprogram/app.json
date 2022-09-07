@@ -1,7 +1,18 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/taxi/index",
+    "pages/address/index",
+    "pages/price/index"
   ],
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取用户当前打车位置"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#00AD81",

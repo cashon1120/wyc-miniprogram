@@ -1,0 +1,18 @@
+<!--pages/address/index.wxml-->
+<view class="container">
+    <view class="top">
+        <input placeholder="你要去哪儿" bindinput="getSuggest" />
+        <text>取消</text>
+    </view>
+
+    <view class="address-list-wrap">
+        <view class="nodata" wx:if="{{addressList.length === 0}}">请输入你要去的地址查询</view>
+        <view class="list" wx:for="{{addressList}}" wx:key="id" bindtap="handleSetEndAddress" data-value="{{item}}">
+            <image src="../../images/address.png" mode="widthFix" />
+            <view>
+                <text class="title">{{item.title}}</text>
+                <text class="info">{{item.address}}</text>
+            </view>
+        </view>
+    </view>
+</view>

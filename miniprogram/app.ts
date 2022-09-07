@@ -1,6 +1,11 @@
 // app.ts
 App<IAppOption>({
-  globalData: {},
+  globalData: {
+      city: '',
+      startAddress: {},
+      endAddress: {},
+      openCityList: []
+  },
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
