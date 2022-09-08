@@ -15,6 +15,7 @@
       "desc": "获取用户当前打车位置"
     }
   },
+  "lazyCodeLoading": "requiredComponents",
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#00AD81",
