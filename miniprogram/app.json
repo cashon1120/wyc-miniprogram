@@ -4,7 +4,8 @@
     "pages/taxi/default/index",
     "pages/taxi/address/index",
     "pages/taxi/price/index",
-    "pages/education/default/index"
+    "pages/education/index",
+    "pages/charge/index"
   ],
   "requiredPrivateInfos": [
     "getLocation"

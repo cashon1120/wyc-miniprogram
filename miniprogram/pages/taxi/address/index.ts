@@ -1,19 +1,10 @@
 import QQMapWX from '../../../utils/qqmap-wx-jssdk'
 import { TMAP_KEY } from '../../../config/index'
 const app = getApp();
-
 Page<any, any>({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     addressList: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad() {
     this.QQMapWX = new QQMapWX({ key: TMAP_KEY })
   },

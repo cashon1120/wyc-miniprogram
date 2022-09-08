@@ -1,7 +1,4 @@
-// index.ts
-// 获取应用实例
 const app = getApp()
-
 let isSetHeight = false
 Page({
   data: {
@@ -16,12 +13,12 @@ Page({
     height: 0,
     items: [
       { url: 'education', src: '../../images/icon_1.png', label: '安全教育' },
-      { url: 2, src: '../../images/icon_2.png', label: '注册平台' },
-      { url: 3, src: '../../images/icon_3.png', label: '租车买车' },
-      { url: 4, src: '../../images/icon_4.png', label: '租房' },
-      { url: 'taxi', src: '../../images/icon_5.png', label: '充电' },
-      { url: 6, src: '../../images/icon_6.png', label: '法律援助' },
-      { url: 'taxi', src: '../../images/icon_7.png', label: '打车' },
+      { url: '', src: '../../images/icon_2.png', label: '注册平台' },
+      { url: '', src: '../../images/icon_3.png', label: '租车买车' },
+      { url: '', src: '../../images/icon_4.png', label: '租房' },
+      { url: 'charge', src: '../../images/icon_5.png', label: '充电' },
+      { url: '', src: '../../images/icon_6.png', label: '法律援助' },
+      { url: 'taxi/default', src: '../../images/icon_7.png', label: '打车' },
     ]
   },
   imageLoad: function () { //获取图片真实宽度  
@@ -35,21 +32,12 @@ Page({
     })
     query.exec()
   },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs',
-    })
-  },
-  onLoad() {
-
-  },
 
   handleNavigate(e: any) {
     const { url } = e.currentTarget.dataset
-    console.log(url)
+    if(!url) return
     wx.navigateTo({
-      url: `/pages/${url}/default/index`,
+      url: `/pages/${url}/index`,
     })
   }
 })
