@@ -1,0 +1,4 @@
+<!--pages/education/default/index.wxml-->
+<view class="item" wx:for="{{data}}" hover-class="item-hover" wx:key="name" data-value="{{item}}" bindtap="handleOpenApp">
+  {{item.name}}
+</view>

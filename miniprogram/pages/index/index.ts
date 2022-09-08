@@ -15,7 +15,7 @@ Page({
     duration: 500,
     height: 0,
     items: [
-      { url: 1, src: '../../images/icon_1.png', label: '安全教育' },
+      { url: 'education', src: '../../images/icon_1.png', label: '安全教育' },
       { url: 2, src: '../../images/icon_2.png', label: '注册平台' },
       { url: 3, src: '../../images/icon_3.png', label: '租车买车' },
       { url: 4, src: '../../images/icon_4.png', label: '租房' },
@@ -49,7 +49,7 @@ Page({
     const { url } = e.currentTarget.dataset
     console.log(url)
     wx.navigateTo({
-      url: `/pages/${url}/index/index`,
+      url: `/pages/${url}/default/index`,
     })
   }
 })

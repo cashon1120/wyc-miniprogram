@@ -10,5 +10,5 @@
     <text>8~12</text>
     元
    </view>
-   <button class="submit">确认叫车</button>
+   <my-button />
 </view>

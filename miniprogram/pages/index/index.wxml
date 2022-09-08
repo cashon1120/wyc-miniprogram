@@ -10,7 +10,7 @@
     </swiper>
   </view>
   <view class="items">
-    <view wx:for="{{items}}" wx:key="url" data-url="{{item.url}}" bindtap="handleNavigate">
+    <view wx:for="{{items}}" wx:key="url" data-url="{{item.url}}" bindtap="handleNavigate" hover-class="item-hover">
       <image src="{{item.src}}" mode="widthFix" />
       {{item.label}}
     </view>

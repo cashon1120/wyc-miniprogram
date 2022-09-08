@@ -15,29 +15,28 @@ Page<any, any>({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    this.QQMapWX = new QQMapWX({key: TMAP_KEY})
+    this.QQMapWX = new QQMapWX({ key: TMAP_KEY })
   },
-  getSuggest(e: any){
-      const {value} = e.detail
-      this.QQMapWX.getSuggestion(({
-          keyword: value,
-          region: app.globalData.city || '成都',
-          success: (res: any) => {
-              this.setData({
-                addressList: res.data
-              })
-          }
-      }))
+  getSuggest(e: any) {
+    const { value } = e.detail
+    this.QQMapWX.getSuggestion(({
+      keyword: value,
+      region: app.globalData.city || '成都',
+      success: (res: any) => {
+        this.setData({
+          addressList: res.data
+        })
+      }
+    }))
   },
-  handleSetEndAddress(e: any){
-      console.log(e)
+  handleSetEndAddress(e: any) {
     app.globalData.endAddress = {
-        latitude: e.currentTarget.dataset.value.location.lat,
-        longitude: e.currentTarget.dataset.value.location.lng,
-        address: e.currentTarget.dataset.value.title
+      latitude: e.currentTarget.dataset.value.location.lat,
+      longitude: e.currentTarget.dataset.value.location.lng,
+      address: e.currentTarget.dataset.value.title
     }
     wx.navigateTo({
-        url: '../price/index'
+      url: '../price/index'
     })
   }
 })

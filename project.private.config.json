@@ -24,7 +24,14 @@
         },
         {
           "name": "",
-          "pathName": "pages/price/index",
+          "pathName": "pages/taxi/price/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/education/default/index",
           "query": "",
           "launchMode": "default",
           "scene": null
