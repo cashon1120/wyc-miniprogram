@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/taxi/index",
-    "pages/address/index",
-    "pages/price/index"
+    "pages/taxi/index/index",
+    "pages/taxi/address/index",
+    "pages/taxi/price/index"
   ],
   "requiredPrivateInfos": [
     "getLocation"

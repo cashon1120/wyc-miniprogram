@@ -1,5 +1,5 @@
-import { TMAP_KEY } from '../../config/index'
-import { GetOpenCityList, GetServiceTypeList } from '../../api/index'
+import { TMAP_KEY } from '../../../config/index'
+import { GetOpenCityList, GetServiceTypeList } from '../../../api/index'
 const app = getApp();
 let firstLoad = true
 Page<any, any>({
@@ -102,7 +102,7 @@ Page<any, any>({
 
     hanleNavigate() {
         wx.navigateTo({
-            url: '../address/index'
+            url: '/pages/taxi/address/index'
         })
     },
 

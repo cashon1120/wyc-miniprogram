@@ -1,6 +1,6 @@
-import { GetFarePredictionV2, GetFixedPrice } from '../../api/index'
-import QQMapWX from '../../utils/qqmap-wx-jssdk'
-import { TMAP_KEY } from '../../config/index'
+import { GetFarePredictionV2, GetFixedPrice } from '../../../api/index'
+import QQMapWX from '../../../utils/qqmap-wx-jssdk'
+import { TMAP_KEY } from '../../../config/index'
 
 const app = getApp();
 
@@ -25,14 +25,14 @@ Page<any, any>({
                 id: 1,
                 latitude: startAddress.latitude,
                 longitude: startAddress.longitude,
-                iconPath: '../../images/marker_start.png',
+                iconPath: '/images/marker_start.png',
                 width: 34,
                 height: 43,
             }, {
                 id: 2,
                 latitude: endAddress.latitude,
                 longitude: endAddress.longitude,
-                iconPath: '../../images/marker_end.png',
+                iconPath: '/images/marker_end.png',
                 width: 34,
                 height: 43,
             }]

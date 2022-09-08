@@ -2,7 +2,7 @@
 <map id="map" class="map" markers="{{markers}}" include-points="{{points}}" bindupdated=""></map>
 <view class="address">
    <view class="safe">
-    <image src="../../images/safe.png" mode="widthFix" />
+    <image src="/images/safe.png" mode="widthFix" />
     守护你的每一次出行
    </view>
    <view class="price">

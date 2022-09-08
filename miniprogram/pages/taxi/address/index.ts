@@ -1,5 +1,5 @@
-import QQMapWX from '../../utils/qqmap-wx-jssdk'
-import { TMAP_KEY } from '../../config/index'
+import QQMapWX from '../../../utils/qqmap-wx-jssdk'
+import { TMAP_KEY } from '../../../config/index'
 const app = getApp();
 
 Page<any, any>({

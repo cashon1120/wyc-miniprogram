@@ -49,7 +49,7 @@ Page({
     const { url } = e.currentTarget.dataset
     console.log(url)
     wx.navigateTo({
-      url: `../${url}/index`,
+      url: `/pages/${url}/index/index`,
     })
   }
 })
