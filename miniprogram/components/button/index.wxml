@@ -1,1 +1,6 @@
-<view class="submit">确认叫车</view>
+<view class="wrapper {{loading || disabled ? 'disabled' : null}}" style="{{customStyle}}">
+    <button style="width: 100%;" form-type="{{formType}}" class="button {{type}}" hover-class="button-hover" hover-stay-time="100" bindtap="dispatchTapEvent">
+        <image wx:if="{{icon}}" src="{{icon}}" class="icon" mode="widthFix" />
+        {{loading ? '加载中...' : title}}
+    </button>
+</view>

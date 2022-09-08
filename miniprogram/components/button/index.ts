@@ -1,23 +1,22 @@
-// components/button/index.ts
+// components/myButton/index.ts
 Component({
-  /**
-   * 组件的属性列表
-   */
+  behaviors: ['wx://form-field-button'],
   properties: {
-
+    title: String,
+    type: String,
+    icon: String,
+    customStyle: String,
+    formType: String,
+    loading: Boolean,
+    disabled: Boolean,
+    tabbarPath: String,
+    path: String
   },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
   methods: {
-
-  }
-})
+    dispatchTapEvent() {
+      if(this.data.disabled || this.data.loading) return
+      this.triggerEvent("click");
+    },
+  },
+});

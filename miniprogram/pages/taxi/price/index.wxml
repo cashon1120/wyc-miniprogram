@@ -1,14 +1,16 @@
 <!--pages/taxi/index.wxml-->
-<map id="map" class="map" markers="{{markers}}" include-points="{{points}}" bindupdated=""></map>
+<map id="map" class="map" markers="{{markers}}" include-points="{{points}}"></map>
 <view class="address">
-   <view class="safe">
+  <view class="safe">
     <image src="/images/safe.png" mode="widthFix" />
     守护你的每一次出行
-   </view>
-   <view class="price">
+  </view>
+  <view class="price">
     预估费用
     <text>8~12</text>
     元
-   </view>
-   <my-button />
+  </view>
+  <view class="button-wrapper">
+    <my-button title="确认叫车" bind:click="handleSubmit" disabled loading/>
+  </view>
 </view>

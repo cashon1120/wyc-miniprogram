@@ -79,6 +79,9 @@ Page<any, any>({
     },
     bindupdated() {
         console.log(123)
+    },
+    handleSubmit(){
+      console.log('submit')
     }
 })
 
