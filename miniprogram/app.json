@@ -16,7 +16,10 @@
     }
   },
   "lazyCodeLoading": "requiredComponents",
-  "window": {
+  "window": { 
+
+
+    
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#00AD81",
     "navigationBarTitleText": "成都出行",

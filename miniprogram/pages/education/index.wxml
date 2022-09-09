@@ -1,4 +1,9 @@
 <!--pages/education/default/index.wxml-->
+<view>
+  <image src="/images/education_banner.png" mode="widthFix" class="banner" />
+</view>
 <view class="item" wx:for="{{data}}" hover-class="item-hover" wx:key="name" data-value="{{item}}" bindtap="handleOpenApp">
-  {{item.name}}
+  <image src="/images/education_icon.png" mode="widthFix" class="icon" />
+  <view>{{item.name}}</view>
+  <image src="/images/arrow.png" mode="widthFix" class="arrow" />
 </view>

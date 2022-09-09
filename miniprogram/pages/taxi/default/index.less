@@ -22,7 +22,7 @@
         padding: 20rpx 30rpx;
         position: relative;
         border-radius: 50rpx;
-        font-size: 32rpx;
+        font-size: 30rpx;
         z-index: 99;
      }
      .content-line{
@@ -54,9 +54,9 @@
     bottom: 0;
     box-sizing: border-box;
     border-radius: 40rpx 40rpx 0 0;
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-bottom: env(safe-area-inset-bottom);
-    
+    padding-bottom: calc(50rpx + constant(safe-area-inset-bottom) / 2);
+    padding-bottom: calc(50rpx + env(safe-area-inset-bottom) / 2);
+    box-shadow: 0 0 20rpx rgba(0,0,0, .1);
     .select-address{
         display: flex;
         align-items: center;
@@ -75,12 +75,19 @@
         }
         .start-address{
             color: #00AD81;
-            font-size: 34rpx;
+            font-size: 32rpx;
             flex: 1;
         }
         .start-address-info{
             font-size: 28rpx;
             margin-left: 20rpx;
+            color: #666;
+        }
+        image{
+          width: 25rpx;
+          height: auto;
+          position: relative;
+          top: 3rpx;
         }
         &.end{
             background-color: #F4F5F7;

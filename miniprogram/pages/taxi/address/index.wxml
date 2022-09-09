@@ -1,8 +1,8 @@
 <!--pages/address/index.wxml-->
 <view class="container">
     <view class="top">
-        <input placeholder="你要去哪儿" bindinput="getSuggest" />
-        <text>取消</text>
+        <input placeholder="{{type === 'start' ? '从哪儿出发' : '你要去哪儿'}}" bindinput="getSuggest" />
+        <view hover-class="view-hover" bindtap="handleBack">取消</view>
     </view>
 
     <view class="address-list-wrap">

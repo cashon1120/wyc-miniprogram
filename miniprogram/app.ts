@@ -1,10 +1,14 @@
 // app.ts
 App<IAppOption>({
   globalData: {
-      city: '',
+      currentCity: {
+        cityName: '',
+        cityId: 0
+      },
       startAddress: {},
       endAddress: {},
-      openCityList: []
+      openCityList: [],
+      groupList: []
   },
   onLaunch() {
     // 展示本地存储能力

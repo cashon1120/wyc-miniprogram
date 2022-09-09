@@ -3,16 +3,22 @@ import { TMAP_KEY } from '../../../config/index'
 const app = getApp();
 Page<any, any>({
   data: {
-    addressList: []
+    addressList: [],
+    type: 'start'
   },
-  onLoad() {
+  onLoad(options: any) {
+    this.setData({
+      type: options.type
+    })
     this.QQMapWX = new QQMapWX({ key: TMAP_KEY })
   },
+
+  // 根据输入内容查询地址
   getSuggest(e: any) {
     const { value } = e.detail
     this.QQMapWX.getSuggestion(({
       keyword: value,
-      region: app.globalData.city || '成都',
+      region: app.globalData.currentCity.cityName || '成都',
       success: (res: any) => {
         this.setData({
           addressList: res.data
@@ -20,15 +26,28 @@ Page<any, any>({
       }
     }))
   },
+
+  // 选中地址处理，type不一样，处理方式不一样
   handleSetEndAddress(e: any) {
-    app.globalData.endAddress = {
-      latitude: e.currentTarget.dataset.value.location.lat,
-      longitude: e.currentTarget.dataset.value.location.lng,
-      address: e.currentTarget.dataset.value.title
+    const { value } = e.currentTarget.dataset
+    const addressInfo = {
+      latitude: value.location.lat,
+      longitude: value.location.lng,
+      address: value.title
     }
+    if (this.data.type === 'start') {
+      app.globalData.selectedAddress = addressInfo
+      wx.navigateBack()
+      return
+    }
+    app.globalData.endAddress = addressInfo
     wx.navigateTo({
       url: '../price/index'
     })
+  },
+
+  handleBack() {
+    wx.navigateBack()
   }
 })
 

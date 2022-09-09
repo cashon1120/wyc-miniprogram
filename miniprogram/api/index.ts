@@ -14,10 +14,11 @@ export const GetServiceTypeList = () => {
     })
 }
 
-export const GetGroupList = () => {
+export const GetGroupList = (data: any) => {
     return request({
         url: 'shouyue/getGroupsList',
         method: 'POST',
+        data
     })
 }
 
