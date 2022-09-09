@@ -14,3 +14,6 @@ export const API_URL = 'https://wycapi.hi515.cn/'
 
 // 腾讯地图key
 export const TMAP_KEY = 'DTRBZ-AJOWX-XBJ4U-TNQ6U-BUYH6-37F3J'
+
+// 快电渠道号
+export const KD_PT = '12345'

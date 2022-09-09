@@ -41,7 +41,7 @@ Page<any, any>({
       return
     }
     app.globalData.endAddress = addressInfo
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../price/index'
     })
   },

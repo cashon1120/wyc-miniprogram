@@ -37,3 +37,10 @@ export const GetFixedPrice = (data: any) => {
         data
     })
 }
+
+export const GetPhoneNumber = (code: string) => {
+  return request({
+    url: `wechat/min/getPhone?code=${code}`,
+    method: 'GET',
+})
+}

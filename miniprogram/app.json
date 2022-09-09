@@ -10,19 +10,22 @@
   "requiredPrivateInfos": [
     "getLocation"
   ],
+  "plugins": {
+    "kdPlugin": {
+      "version": "1.2.2",
+      "provider": "wx01440835f1987e8b"
+    }
+  },
   "permission": {
     "scope.userLocation": {
       "desc": "获取用户当前打车位置"
     }
   },
   "lazyCodeLoading": "requiredComponents",
-  "window": { 
-
-
-    
+  "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#00AD81",
-    "navigationBarTitleText": "成都出行",
+    "navigationBarTitleText": "天府智慧出行",
     "navigationBarTextStyle": "white"
   },
   "style": "v2",
