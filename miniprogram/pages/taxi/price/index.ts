@@ -4,6 +4,9 @@ import { TMAP_KEY } from '../../../config/index'
 const app = getApp();
 interface IData { }
 const getGroupListByServiceType = (type: number) => {
+  if(app.globalData.groupList!){
+    return []
+  }
   const result = app.globalData.groupList.filter((item: any) => item.serviceType === type)[0].groupList
   return result
 }

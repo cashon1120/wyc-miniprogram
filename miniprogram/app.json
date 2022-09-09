@@ -21,9 +21,9 @@
       "desc": "获取用户当前打车位置"
     }
   },
-  "lazyCodeLoading": "requiredComponents",
+  
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "light",  
     "navigationBarBackgroundColor": "#00AD81",
     "navigationBarTitleText": "天府智慧出行",
     "navigationBarTextStyle": "white"

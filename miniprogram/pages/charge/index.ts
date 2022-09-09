@@ -15,7 +15,7 @@ Page({
       console.log('获取失败')
     }
   },
-
+ 
   handleGetPhoneNumber(e: any) {
     // pt: 渠道号, phone: 用户手机号 两个必填
     if (!e) return
