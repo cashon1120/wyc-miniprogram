@@ -12,7 +12,7 @@ Page({
     duration: 500,
     height: 0,
     items: [
-      { url: 'education', src: '../../images/icon_1.png', label: '安全教育' },
+      // { url: 'education', src: '../../images/icon_1.png', label: '安全教育' },
       { url: '', src: '../../images/icon_2.png', label: '注册平台' },
       { url: '', src: '../../images/icon_3.png', label: '租车买车' },
       { url: '', src: '../../images/icon_4.png', label: '租房' },
