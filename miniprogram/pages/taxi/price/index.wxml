@@ -2,23 +2,35 @@
 <map id="map" class="map" markers="{{markers}}" include-points="{{points}}" scale="{{scale}}" polyline="{{polyline}}"></map>
 <view class="address">
   <view class="safe">
-    <image src="/images/safe.png" mode="widthFix" />
+    <image src="/images/safe.png" class="icon" mode="widthFix" />
     守护你的每一次出行
+  </view>
+  <view class="typeWrapper" wx:if="{{jumpType === 2}}">
+    <view>
+      <view data-type="{{1}}" class="{{priceType === 1 ? 'active' : null}}" bindtap="handleChangePriceType">普通价</view>
+      <view data-type="{{2}}" class="{{priceType === 2 ? 'active' : null}}" bindtap="handleChangePriceType">一口价 </view>
+    </view>
   </view>
   <view class="groupList">
     <view wx:for="{{groupList}}" wx:key="id" class="group" data-id="{{item.id}}" bindtap="handleSelectGroup">
-        <view class="name">{{item.name}}</view>
-        <view class="price">
-          <view>普通价: <text>{{item.normalPrice.actualAmount || '--'}}</text>元</view>
-          <view>一口价: <text>{{item.estimatesPrice.amount || '--'}}</text>元</view>
-        </view>
-        <image wx:if="{{item.selected}}" src="/images/selected.png" />
+      <view class="name">{{item.name}}</view>
+      <view class="price">
+        <view>普通价: <text>{{item.normalPrice.originalAmount || '--'}}</text>元</view>
+        <view>一口价: <text>{{item.estimatesPrice.amount || '--'}}</text>元</view>
+      </view>
+      <view wx:if="{{jumpType === 1}}">
+        <image wx:if="{{item.selected }}" src="/images/selected.png" />
         <image wx:else src="/images/select.png" />
+      </view>
+      <view wx:else>
+        <image wx:if="{{item.id === selectedGroup }}" src="/images/selected.png" />
+        <image wx:else src="/images/select.png" />
+      </view>
     </view>
   </view>
 
   <view class="button-wrapper">
-    <my-button title="确认叫车" bind:click="handleSubmit"/>
+    <my-button title="确认叫车" loading="{{loading}}" bind:click="handleSubmit" />
   </view>
 
 </view>

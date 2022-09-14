@@ -18,7 +18,8 @@ Page({
       { url: '', src: '../../images/icon_4.png', label: '租房' },
       { url: 'charge', src: '../../images/icon_5.png', label: '充电' },
       { url: '', src: '../../images/icon_6.png', label: '法律援助' },
-      { url: 'taxi/default', src: '../../images/icon_7.png', label: '打车' },
+      { url: 'taxi/default', type: 1, src: '../../images/icon_7.png', label: '打车(直接跳)' },
+      { url: 'taxi/default', type: 2, src: '../../images/icon_7.png', label: '打车(下单后跳)' },
     ]
   },
   imageLoad: function () { //获取图片真实宽度  
@@ -35,7 +36,24 @@ Page({
 
   handleNavigate(e: any) {
     const { url } = e.currentTarget.dataset
-    if(!url) return
+    if(!url) {
+      wx.showToast({
+        title: '该功能尚未开放',
+        icon: 'none'
+      })
+      return
+    }
+
+    // 测试
+    const {type} = e.currentTarget.dataset
+    if(url === 'taxi/default'){
+      app.globalData.priceType = type
+      wx.navigateTo({
+        url: `/pages/${url}/index`,
+      })
+      return
+    }
+
     wx.navigateTo({
       url: `/pages/${url}/index`,
     })

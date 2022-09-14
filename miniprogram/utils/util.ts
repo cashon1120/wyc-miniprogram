@@ -17,3 +17,19 @@ const formatNumber = (n: number) => {
   const s = n.toString()
   return s[1] ? s : '0' + s
 }
+
+
+export const checkUserPhone = () => {
+  try{
+    var value = wx.getStorageSync('userPhone')
+    if (!value) {
+     wx.navigateTo({
+       url: '/pages/getPhone/index'
+     })
+     return
+    }
+    return value
+  }catch(e: any){
+    console.log('获取失败')
+  }
+}

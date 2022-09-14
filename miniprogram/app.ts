@@ -8,7 +8,8 @@ App<IAppOption>({
       startAddress: {},
       endAddress: {},
       openCityList: [],
-      groupList: []
+      groupList: [],
+      toUrl: ''
   },
   onLaunch() {
     // 展示本地存储能力

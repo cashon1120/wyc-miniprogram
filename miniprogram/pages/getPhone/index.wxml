@@ -1,0 +1,4 @@
+<view class="wrapper">
+  为保障顺利使用该功能，需要获取您的手机号
+  <button class="button" style="width: 100%" open-type="getPhoneNumber" type="primary" bindgetphonenumber="handleGetPhoneNumber">同意授权</button>
+</view>

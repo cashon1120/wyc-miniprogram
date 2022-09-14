@@ -15,7 +15,8 @@ interface IAppOption {
       latitude: number,
       longitude: number,
       address: string
-    }
+    },
+    toUrl: string
   }
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
 }
