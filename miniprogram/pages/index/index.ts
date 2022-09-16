@@ -18,8 +18,8 @@ Page({
       { url: '', src: '../../images/icon_4.png', label: '租房' },
       { url: 'charge', src: '../../images/icon_5.png', label: '充电' },
       { url: '', src: '../../images/icon_6.png', label: '法律援助' },
-      { url: 'taxi/default', type: 1, src: '../../images/icon_7.png', label: '打车(直接跳)' },
-      { url: 'taxi/default', type: 2, src: '../../images/icon_7.png', label: '打车(下单后跳)' },
+      // { url: 'taxi/default', type: 1, src: '../../images/icon_7.png', label: '打车(直接跳)' },
+      { url: 'taxi/default', type: 2, src: '../../images/icon_7.png', label: '打车' },
     ]
   },
   imageLoad: function () { //获取图片真实宽度  

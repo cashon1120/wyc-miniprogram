@@ -1,5 +1,5 @@
 import { TMAP_KEY } from '../../../config/index'
-import { GetOpenCityList, GetServiceTypeList, GetGroupList } from '../../../api/index'
+import { GetOpenCityList, GetServiceTypeList, GetGroupList, GetPartnerOrderNo, GetLoginUrl, CancelOrder } from '../../../api/index'
 const app = getApp();
 let firstLoad = true
 
@@ -14,6 +14,7 @@ Page<any, any>({
     },
     startAddress: '正在获取地址信息...',
     serviceType: [],
+    showModal: false
   },
 
   onReady() {
@@ -81,6 +82,23 @@ Page<any, any>({
 
   onLoad() {
     this.mapCtx = wx.createMapContext('map')
+    const orderInfo = wx.getStorageSync('orderInfo')
+    if(orderInfo){
+      GetPartnerOrderNo({orderNo: orderInfo.orderNo, partnerOrderNo: orderInfo.partnerOrderNo}).then((res: any) => {
+        if(res.code === 0){
+          if(res.data.status <= 30 ){
+            this.setData({
+              showModal: true
+            })
+          }else{
+            wx.removeStorage({
+              key: 'orderInfo'
+            })
+          }
+        }
+      })
+    }
+
     wx.getLocation({
       type: 'wgs84',
       success: (res: any) => {
@@ -143,5 +161,33 @@ Page<any, any>({
         }
       })
     }
+  },
+
+  handleShowOrder(){
+    const orderInfo = wx.getStorageSync('orderInfo')
+    delete orderInfo.orderNo
+    GetLoginUrl(orderInfo).then((res: any) => {
+      if (res.code === 0) {
+        app.globalData.toUrl = res.data
+        wx.redirectTo({
+          url: '/pages/webView/index'
+        })
+      }
+    })
+  },
+
+  handleHideModal(){
+    const orderInfo = wx.getStorageSync('orderInfo')
+    if(orderInfo){
+      const params = {
+        orderNo: orderInfo.orderNo,
+        partnerOrderNo: orderInfo.partnerOrderNo,
+      }
+      CancelOrder(params)
+    }
+
+    this.setData({
+      showModal: false
+    })
   }
 })

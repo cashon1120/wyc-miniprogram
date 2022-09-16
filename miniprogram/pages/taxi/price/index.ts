@@ -244,7 +244,7 @@ Page<IData, any>({
         }
         CreateOrder1(params).then((res: any) => {
           if (res.code === 0 && res.data.code === 0) {
-            this.handleGetUrl(userPhone, res.data.partnerOrderNo)
+            this.handleGetUrl(userPhone, res.data.partnerOrderNo, res.data.orderNo)
           } else {
             wx.showToast({
               title: '数据获取失败',
@@ -276,7 +276,7 @@ Page<IData, any>({
         }
         CreateOrder2(params).then((res: any) => {
           if (res.code === 0) {
-            this.handleGetUrl(userPhone, res.data.partnerOrderNo)
+            this.handleGetUrl(userPhone, res.data.partnerOrderNo, res.data.orderNo)
           } else {
             wx.showToast({
               title: '数据获取失败',
@@ -294,15 +294,27 @@ Page<IData, any>({
     }
   },
 
-  handleGetUrl(userPhone: string, partnerOrderNo?: string) {
+  handleGetUrl(userPhone: string, partnerOrderNo?: string, orderNo?: string) {
     this.setData({
       loading: true
     })
     const { startAddress } = app.globalData
+    if(partnerOrderNo){
+      wx.setStorage({
+        key: 'orderInfo',
+        data: {
+          userPhone,
+          startLng: startAddress.longitude,
+          startLat: startAddress.latitude, 
+          partnerOrderNo,
+          orderNo
+        }
+      })
+    }
     GetLoginUrl({ userPhone, startLng: startAddress.longitude, startLat: startAddress.latitude, partnerOrderNo }).then((res: any) => {
       if (res.code === 0) {
         app.globalData.toUrl = res.data
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/webView/index'
         })
       }

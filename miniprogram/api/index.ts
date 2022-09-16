@@ -69,3 +69,19 @@ export const CreateOrder2 = (data: any) => {
   })
 }
 
+export const GetPartnerOrderNo = (data: any) => {
+  return request({
+    url: `shouyue/pollingOrderStatus`,
+    method: 'POST',
+    data
+  })
+}
+
+export const CancelOrder = (data: any) => {
+  return request({
+    url: `shouyue/cancelOrder`,
+    method: 'POST',
+    data
+  })
+}
+
