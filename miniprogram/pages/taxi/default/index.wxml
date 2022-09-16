@@ -1,5 +1,5 @@
 <!--pages/taxi/index.wxml-->
-<view class="mapContainer">
+<!-- <view class="mapContainer">
   <map id="map" class="map" longitude="{{center.longitude}}" latitude="{{center.latitude}}" bindregionchange="bindregionchange"></map>
   <view class="content" bindtap="hanleNavigate" data-type="start">
     <view class="content-title">{{startAddress}}
@@ -7,9 +7,9 @@
     <view class="content-line"></view>
     <view class="content-dotted"></view>
   </view>
-</view>
+</view> -->
 
-<view class="address">
+<!-- <view class="address">
   <view class="select-address" bindtap="hanleNavigate" data-type="start">
     <view class="dotted start"></view>
     <text class="start-address">{{startAddress}}</text>
@@ -20,21 +20,15 @@
     <view class="dotted end"></view>
     <text>输入你的目的地</text>
   </view>
+</view> -->
 
-  <!-- <view class="service-list-wrapper">
-        <view>
-            <view wx:for="{{serviceType}}" wx:key="value">{{item.name}}</view>
-        </view>
-    </view> -->
-</view>
-
-<view class="modal" wx:if="{{showModal}}">
+<!-- <view class="modal" wx:if="{{showModal}}">
   <view>
     <text class="title">系统提示</text>
-    <text class="info">您有一笔进行中的订单</text>
+    <text class="info">您当前有未完成的订单</text>
     <view>
       <view bindtap="handleShowOrder">查看订单</view>
       <view bindtap="handleHideModal">重新下单</view>
     </view>
   </view>
-</view>
+</view> -->
