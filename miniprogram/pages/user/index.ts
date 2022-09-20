@@ -47,5 +47,9 @@ Page({
         })
       }
     })
+  },
+
+  handleOpenPage(e: any){
+    console.log(e.currentTarget.dataset.url)
   }
 })

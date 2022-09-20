@@ -1,0 +1,44 @@
+<form bindsubmit="submit" class="formWrapper">
+  <view wx:for="{{formItem}}" wx:key="label">
+    <view wx:if="{{item.type === 'picker'}}" class="form-item">
+      <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
+      <view class="item">
+        <picker header-text="{{item.label}}" wx:if="{{item.mode}}" mode="region" name="{{item.name}}" data-name="{{item.name}}" bindchange="bindFormChange">
+          <view wx:if="{{item.value.length > 0}}" class="picker">
+            {{item.value[0]}}-{{item.value[1]}}-{{item.value[2]}}
+          </view>
+          <view wx:else class="placeholder">{{item.placeholder}}</view>
+        </picker>
+
+        <picker wx:else header-text="{{item.label}}" name="{{item.name}}" bindchange="bindFormChange" data-name="{{item.name}}" range-key="name" value="{{item.value}}" range="{{item.range}}">
+          <view wx:if="{{item.value !== ''}}">
+            {{item.range[item.value].name}}
+          </view>
+          <view wx:else class="placeholder">{{item.placeholder}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view wx:if="{{item.type === 'input'}}" class="form-item">
+      <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
+      <view class="item">
+        <input type="{{item.inputType || 'text'}}" data-name="{{item.name}}" bindinput="bindFormChange" value="{{item.value}}" placeholder="{{item.placeholder}}" name="{{item.name}}" placeholder-class="placeholder" />
+      </view>
+    </view>
+
+    <view wx:if="{{item.type === 'radio'}}" class="form-item">
+      <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
+      <view class="item">
+        <radio-group bindchange="bindFormChange" name="{{item.name}}" data-name="{{item.name}}">
+          <label class="radio" wx:for="{{item.data}}" wx:for-item="items" wx:key="value">
+            <radio value="{{items.value}}" />{{items.label}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-submit-wrapper">
+    <my-button title="提交" loading="{{loading}}" form-type="submit" />
+  </view>
+</form>

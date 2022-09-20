@@ -13,7 +13,7 @@ Page({
     height: 0,
     items: [
       // { url: 'education', src: '../../images/icon_1.png', label: '安全教育' },
-      { url: '', src: '../../images/icon_2.png', label: '注册平台' },
+      { url: 'regist', src: '../../images/icon_2.png', label: '注册平台' },
       { url: '', src: '../../images/icon_3.png', label: '租车' },
       { url: '', src: '../../images/icon_4.png', label: '租房' },
       { url: 'charge', src: '../../images/icon_5.png', label: '充电' },
