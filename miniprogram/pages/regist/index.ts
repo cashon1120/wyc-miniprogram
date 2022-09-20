@@ -17,6 +17,7 @@ Page({
       {label: '所在城市', name: 'region', value: '', placeholder: '请选择省份城市与地区', type: 'picker', mode: 'region', required: {message: '请选择省份城市与地区'}},
       {label: '您的实际驾龄', name: 'age', value: '', placeholder: '请选择您的实际驾龄', type: 'picker', range: ageArray, required: {message: '请选择您的实际驾龄'}},
       {label: '您是否有网络预约出租车驾驶证', name: 'driveID', value: '', type: 'radio', data: [{label: '是', value: 1}, {label: '否', value: 0}], required: {message: '请选择是否有网络预约出租车驾驶证'}},
+      {label: '上传图片', name: 'image', value: '', type: 'upload', required: {message: '请选择图片'}},
     ]
   },
 

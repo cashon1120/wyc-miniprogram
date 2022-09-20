@@ -37,6 +37,7 @@ Component({
       if(error) return
       this.triggerEvent('submit', value)
     },
+    
     bindFormChange(e: any){
       const formItem = this.data.formItem
       formItem.forEach((item: any) => {
@@ -45,6 +46,25 @@ Component({
         }
       })
       this.triggerEvent('change', this.data.formItem)
+    },
+
+    chooseimage(){
+      wx.chooseMedia({
+        count: 1,
+        mediaType: ['image'],
+        sourceType: ['album', 'camera'],
+        success: (res: any) => {
+          console.log(res)
+          wx.uploadFile({
+            url: '',
+            filePath: res.tempFiles[0].tempFilePath,
+            name: 'file',
+            success: (res: any) => {
+              console.log(res)
+            }
+          })
+        },
+      })
     }
   }
 })

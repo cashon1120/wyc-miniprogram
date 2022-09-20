@@ -2,5 +2,6 @@
   "usingComponents": {
     "my-button": "/components/button",
     "FormItem": "/components/formItem"
-  }
+  },
+  "navigationBarTitleText": "平台注册"
 }

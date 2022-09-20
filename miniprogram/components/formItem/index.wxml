@@ -36,7 +36,17 @@
         </radio-group>
       </view>
     </view>
+
+    <view wx:if="{{item.type === 'upload'}}" class="form-item">
+      <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
+      <view class="item">
+        <view class="upload" bindtap="chooseimage"> 点击上传</view>
+      </view>
+    </view>
+
   </view>
+
+
 
   <view class="form-submit-wrapper">
     <my-button title="提交" loading="{{loading}}" form-type="submit" />
