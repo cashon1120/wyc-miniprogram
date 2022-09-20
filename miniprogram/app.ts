@@ -9,7 +9,12 @@ App<IAppOption>({
       endAddress: {},
       openCityList: [],
       groupList: [],
-      toUrl: ''
+      toUrl: '',
+      userInfo: {
+        avatarUrl: '',
+        nickName: '',
+        userName: '',
+      }
   },
   onLaunch() {
     // 展示本地存储能力

@@ -1,0 +1,13 @@
+<view class="userInfo">
+  <view class="avatar">
+    <image class="avatar" src="{{userInfo.avatarUrl}}" />
+  </view>
+  <view class="userName" bindtap="handleGetUserInfo">
+    <text>{{userInfo.nickName || '获取用户信息'}}</text>
+  </view>
+</view>
+
+<view class="item"  hover-class="item-hover" data-url="" bindtap="handleOpenApp">
+  <view>我的注册</view>
+  <image src="/images/arrow.png" mode="widthFix" class="arrow" />
+</view>

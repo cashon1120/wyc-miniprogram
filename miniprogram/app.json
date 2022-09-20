@@ -7,7 +7,8 @@
     "pages/education/index",
     "pages/charge/index",
     "pages/getPhone/index",
-    "pages/webView/index"
+    "pages/webView/index",
+    "pages/user/index"
   ],
   "requiredPrivateInfos": [
     "getLocation"
@@ -29,6 +30,26 @@
     "navigationBarBackgroundColor": "#00AD81",
     "navigationBarTitleText": "天府智慧出行",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#595959",
+    "selectedColor": "#00AD81",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tab_sel01.png",
+        "selectedIconPath": "images/tab_nor01.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "iconPath": "images/tab_sel04.png",
+        "selectedIconPath": "images/tab_nor04.png",
+        "text": "我的"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -14,10 +14,10 @@ Page({
     items: [
       // { url: 'education', src: '../../images/icon_1.png', label: '安全教育' },
       { url: '', src: '../../images/icon_2.png', label: '注册平台' },
-      { url: '', src: '../../images/icon_3.png', label: '租车买车' },
+      { url: '', src: '../../images/icon_3.png', label: '租车' },
       { url: '', src: '../../images/icon_4.png', label: '租房' },
       { url: 'charge', src: '../../images/icon_5.png', label: '充电' },
-      { url: '', src: '../../images/icon_6.png', label: '法律援助' },
+      { url: '', src: '../../images/icon_6.png', label: '法律服务' },
       // { url: 'taxi/default', type: 1, src: '../../images/icon_7.png', label: '打车(直接跳)' },
       { url: 'taxi/default', type: 2, src: '../../images/icon_7.png', label: '打车' },
     ]
@@ -59,3 +59,5 @@ Page({
     })
   }
 })
+
+export default {}

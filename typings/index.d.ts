@@ -2,7 +2,7 @@
 
 interface IAppOption {
   globalData: {
-    userInfo?: WechatMiniprogram.UserInfo,
+    userInfo?: any,
     currentCity: {
       cityName: string,
       cityId: number
@@ -16,7 +16,7 @@ interface IAppOption {
       longitude: number,
       address: string
     },
-    toUrl: string
+    toUrl: string,
   }
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
 }
