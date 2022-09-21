@@ -1,0 +1,2 @@
+<!--pages/regist/index.wxml-->
+<FormItem formItem="{{formItem}}" bind:submit="handleSubmit" bind:change="handleFormChange" />

@@ -4,9 +4,12 @@
       <view wx:if="{{item.type === 'picker'}}" class="form-item">
         <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
         <view class="item">
-          <picker header-text="{{item.label}}" wx:if="{{item.mode}}" mode="region" name="{{item.name}}" data-name="{{item.name}}" bindchange="bindFormChange">
-            <view wx:if="{{item.value.length > 0}}" class="picker">
+          <picker header-text="{{item.label}}" wx:if="{{item.mode}}" mode="{{item.mode}}" name="{{item.name}}" data-name="{{item.name}}" bindchange="bindFormChange">
+            <view wx:if="{{item.mode === 'region' && item.value.length > 0}}" class="picker">
               {{item.value[0]}}-{{item.value[1]}}-{{item.value[2]}}
+            </view>
+            <view wx:elif="{{item.mode === 'date' && item.value}}" class="picker">
+              {{item.value}}
             </view>
             <view wx:else class="placeholder">{{item.placeholder}}</view>
           </picker>

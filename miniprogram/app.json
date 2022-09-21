@@ -9,7 +9,8 @@
     "pages/getPhone/index",
     "pages/webView/index",
     "pages/user/index",
-    "pages/regist/index"
+    "pages/regist/index",
+    "pages/rentalCars/index"
   ],
   "requiredPrivateInfos": [
     "getLocation"

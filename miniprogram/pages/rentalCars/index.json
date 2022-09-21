@@ -2,5 +2,5 @@
   "usingComponents": {
     "FormItem": "/components/formItem"
   },
-  "navigationBarTitleText": "平台注册"
+  "navigationBarTitleText": "租车"
 }
