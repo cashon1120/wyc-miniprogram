@@ -1,0 +1,53 @@
+.wrapper {
+  width: 150rpx;
+  height: 150rpx;
+  border: 1px solid #eee;
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+  background-color: #fafafa;
+  image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8rpx;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .close{
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    top: 5rpx;
+    right: 5rpx;
+    opacity: .5;
+    background-color: #fff;
+    border-radius: 100%;
+    transform: translateY(0);
+  }
+  .upload {
+    width: 150rpx;
+    height: 150rpx;
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: #999;
+    view{
+      font-size: 90rpx;
+      padding-top: 25rpx;
+      font-weight: 200;
+    }
+  }
+  .upload-hover{
+    opacity: .6;
+  }
+  .progress{
+    height: 5rpx;
+    position: absolute;
+    left: 0;
+    width: 0;
+    bottom: 0;
+    background-color: #00AD81;
+    transition: all .1s linear;
+  }
+}

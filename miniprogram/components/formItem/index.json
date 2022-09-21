@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "my-button": "/components/button"
+    "my-button": "/components/button",
+    "upload": "/components/upload"
   }
 }

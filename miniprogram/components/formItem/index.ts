@@ -48,23 +48,13 @@ Component({
       this.triggerEvent('change', this.data.formItem)
     },
 
-    chooseimage(){
-      wx.chooseMedia({
-        count: 1,
-        mediaType: ['image'],
-        sourceType: ['album', 'camera'],
-        success: (res: any) => {
-          console.log(res)
-          wx.uploadFile({
-            url: '',
-            filePath: res.tempFiles[0].tempFilePath,
-            name: 'file',
-            success: (res: any) => {
-              console.log(res)
-            }
-          })
-        },
+    bindUploadChange(e: any){
+      this.data.formItem.forEach((item: any) => {
+        if(item.name === e.detail.name){
+          item.value = e.detail.filePath
+        }
       })
+      this.triggerEvent('change', this.data.formItem)
     }
   }
 })

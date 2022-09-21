@@ -40,9 +40,7 @@
 
       <view wx:if="{{item.type === 'upload'}}" class="form-item">
         <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
-        <view class="item">
-          <view class="upload" bindtap="chooseimage"> 点击上传</view>
-        </view>
+        <upload name="{{item.name}}" value="{{item.value}}" bind:change="bindUploadChange" />
       </view>
 
     </view>

@@ -1,0 +1,6 @@
+<view class="wrapper">
+  <image wx:if="{{value}}" src="{{value}}" mode="widthFix" bindtap="chooseimage"/>
+  <view wx:else class="upload" bindtap="chooseimage" hover-class="upload-hover"><view>+</view>点击上传</view>
+  <image wx:if="{{value}}" src="/images/close.png" class="close"  hover-class="upload-hover" mode="widthFix" bindtap="clearimage"/>
+  <view wx:if="{{loading}}" class="progress" style="width: {{progress}};"></view>
+</view>
