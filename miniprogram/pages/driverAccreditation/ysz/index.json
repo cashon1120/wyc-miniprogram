@@ -2,5 +2,5 @@
   "usingComponents": {
     "FormItem": "/components/formItem"
   },
-  "navigationBarTitleText": "运输证"
+  "navigationBarTitleText": "道路运输证"
 }
