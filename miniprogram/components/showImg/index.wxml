@@ -1,5 +1,5 @@
-<view class="wrapper">
-  <view class="bg" bindtap="handleHide"></view>
+<view class="wrapper" bindtap="handleHide">
+  <view class="bg"></view>
   <view class="content">
     <image src="{{url}}" mode="widthFix" />
   </view>

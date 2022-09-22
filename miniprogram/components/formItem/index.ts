@@ -33,6 +33,18 @@ Component({
           error = true
           break
         }
+        if(item.validate){
+          if(typeof item.validate.exec === 'function'){
+            if(!item.validate.exec(item.value)){
+              wx.showToast({
+                title: item.validate.message,
+                icon: 'none'
+              })
+              error = true
+              break
+            }
+          }
+        }
       }
       if (error) return
       this.triggerEvent('submit', value)
