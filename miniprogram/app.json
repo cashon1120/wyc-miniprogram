@@ -10,7 +10,11 @@
     "pages/webView/index",
     "pages/user/index",
     "pages/regist/index",
-    "pages/rentalCars/index"
+    "pages/rentalCars/index",
+    "pages/lawService/index",
+    "pages/driverAccreditation/default/index",
+    "pages/driverAccreditation/wyc/index",
+    "pages/driverAccreditation/ysz/index"
   ],
   "requiredPrivateInfos": [
     "getLocation"

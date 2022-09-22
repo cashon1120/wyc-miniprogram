@@ -2,7 +2,9 @@
   "component": true,
   "usingComponents": {
     "my-button": "/components/button",
-    "upload": "/components/upload",
-    "dateTimePicker": "/components/dateTimePicker"
+    "Upload": "/components/upload",
+    "DateTimePicker": "/components/dateTimePicker",
+    "FormLabel": "/components/formLabel",
+    "ShowImg": "/components/showImg"
   }
 }

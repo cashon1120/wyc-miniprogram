@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-button": "../../components/button"
+  },
+  "navigationBarTitleText": "法律服务"
+}

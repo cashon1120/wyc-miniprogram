@@ -6,6 +6,7 @@ Component({
   properties: {
     name: String,
     value: String,
+    uploadText: String
   },
 
   /**
@@ -50,7 +51,7 @@ Component({
               loading: false
             })
           }, 3000);
-          this.triggerEvent('change', {name: this.data.name, filePath: res.tempFiles[0].tempFilePath})
+          this.triggerEvent('change', {name: this.data.name, value: res.tempFiles[0].tempFilePath})
           // const uploadTask = wx.uploadFile({
           //   url: '',
           //   filePath: res.tempFiles[0].tempFilePath,

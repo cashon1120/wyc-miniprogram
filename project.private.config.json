@@ -63,6 +63,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/lawService/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/driverAccreditation/wyc/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/driverAccreditation/ysz/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

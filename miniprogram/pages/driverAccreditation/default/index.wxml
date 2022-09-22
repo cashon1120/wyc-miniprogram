@@ -1,0 +1,4 @@
+<view class="wrapper">
+  <ListItem label="网约车驾驶资格证" url="/pages/driverAccreditation/wyc/index" />
+  <ListItem label="道路运输证" url="/pages/driverAccreditation/ysz/index" />
+</view>

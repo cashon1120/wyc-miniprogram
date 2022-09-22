@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "FormItem": "/components/formItem"
+  },
+  "navigationBarTitleText": "网约车驾驶资格证"
+}

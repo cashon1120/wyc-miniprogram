@@ -1,16 +1,16 @@
 <view class="formWrapper">
   <form bindsubmit="submit">
-    <view wx:for="{{formItem}}" wx:key="label">
-      <view wx:if="{{item.type === 'picker'}}" class="form-item">
-        <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
+    <view class="form-item" wx:for="{{formItem}}" wx:key="label" style="width: {{!!item.inline ? '50%' : '100%'}}; display: inline-block;">
+      <view wx:if="{{item.type === 'picker'}}">
+        <view class="label"><FormLabel item="{{item}}" /></view>
         <view class="item">
         
-          <dateTimePicker wx:if="{{item.mode === 'date'}}">
+          <DateTimePicker start="{{item.start}}" data-name="{{item.name}}" wx:if="{{item.mode === 'date'}}" bindchange="bindDateChange">
             <view wx:if="{{item.value}}" class="picker">
               {{item.value}}
             </view>
             <view wx:else class="placeholder">{{item.placeholder}}</view>
-          </dateTimePicker>
+          </DateTimePicker>
 
           <picker header-text="{{item.label}}" wx:elif="{{item.mode === 'region'}}" mode="region" name="{{item.name}}" data-name="{{item.name}}" bindchange="bindFormChange">
             <view wx:if="{{item.value.length > 0}}" class="picker">
@@ -28,15 +28,15 @@
         </view>
       </view>
 
-      <view wx:if="{{item.type === 'input'}}" class="form-item">
-        <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
+      <view wx:if="{{item.type === 'input'}}">
+        <view class="label"><FormLabel item="{{item}}" /></view>
         <view class="item">
           <input type="{{item.inputType || 'text'}}" data-name="{{item.name}}" bindinput="bindFormChange" value="{{item.value}}" placeholder="{{item.placeholder}}" name="{{item.name}}" placeholder-class="placeholder" />
         </view>
       </view>
 
-      <view wx:if="{{item.type === 'radio'}}" class="form-item">
-        <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
+      <view wx:if="{{item.type === 'radio'}}">
+        <view class="label"><FormLabel item="{{item}}" /></view>
         <view class="item">
           <radio-group bindchange="bindFormChange" name="{{item.name}}" data-name="{{item.name}}">
             <label class="radio" wx:for="{{item.data}}" wx:for-item="items" wx:key="value">
@@ -46,11 +46,14 @@
         </view>
       </view>
 
-      <view wx:if="{{item.type === 'upload'}}" class="form-item">
-        <view class="label"><text class="required" wx:if="{{item.required}}">*</text>{{item.label}}</view>
-        <upload name="{{item.name}}" value="{{item.value}}" bind:change="bindUploadChange" />
+      <view wx:if="{{item.type === 'upload'}}">
+        <view class="label"><FormLabel item="{{item}}" /></view>
+        <Upload name="{{item.name}}" uploadText="{{item.uploadText}}" value="{{item.value}}" bind:change="bindUploadChange" />
       </view>
-
+      <view wx:if="{{item.des || item.template}}" class="desc">
+        {{item.des}}
+        <view wx:if="{{item.template}}" data-template="{{item.template}}" bindtap="handleShowTemplate" class="template" hover-class="template-hover">查看示例</view>
+      </view>
     </view>
 
     <view class="form-submit-wrapper">
@@ -58,3 +61,5 @@
     </view>
   </form>
 </view>
+
+<ShowImg wx:if="{{showImg}}" url="{{showImg}}" bind:click="handleHideShowTemplate" />

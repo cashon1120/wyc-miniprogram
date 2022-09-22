@@ -1,0 +1,1 @@
+<block><text class="required" wx:if="{{item.required && item.label}}">*</text>{{item.label}}</block>

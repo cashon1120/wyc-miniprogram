@@ -1,26 +1,22 @@
 .formWrapper {
   padding-bottom: calc(30rpx + constant(safe-area-inset-bottom) / 2);
   padding-bottom: calc(30rpx + env(safe-area-inset-bottom) / 2);
+
   .form-item {
     padding: 0 30rpx;
     font-size: 30rpx;
     color: #666;
-    margin-bottom: 30rpx;
-    .required{
-      color: #f00;
-      margin-right: 10rpx;
-    }
+    padding-top: 40rpx;
+    box-sizing: border-box;
     .label {
       padding-right: 30rpx;
-      padding-top: 30rpx;
       margin-bottom: 20rpx;
+      white-space: nowrap;
       color: #666;
-      &::after{
-        content: ':';
-      }
     }
 
-    input, picker {
+    input,
+    picker {
       font-size: 30rpx;
       height: 85rpx;
       box-sizing: border-box;
@@ -28,10 +24,12 @@
       border-radius: 8rpx;
       padding: 0 20rpx;
     }
-    input{
+
+    input {
       line-height: 85rpx;
     }
-    picker view{
+
+    picker view {
       padding: 0;
       height: 85rpx;
       line-height: 85rpx;
@@ -45,12 +43,26 @@
       color: #999;
     }
 
-    .radio{
+    .radio {
       margin-right: 30rpx;
     }
-    
+    .desc {
+      padding-top: 15rpx;
+      font-size: 24rpx;
+      color: #999;
+      display: flex;
+    }
+    .template{
+      color: #00AD81;
+      margin-left: 15rpx;
+      &.template-hover{
+        opacity: .6;
+      }
+    }
   }
 }
+
 .form-submit-wrapper {
   padding: 30rpx;
 }
+

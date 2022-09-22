@@ -7,7 +7,4 @@
   </view>
 </view>
 
-<view class="item"  hover-class="item-hover" data-url="myReg" bindtap="handleOpenPage">
-  <view>我的注册</view>
-  <image src="/images/arrow.png" mode="widthFix" class="arrow" />
-</view>
+<listItem label="我的注册" url="/pages/myRegist" />
