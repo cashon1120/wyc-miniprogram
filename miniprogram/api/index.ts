@@ -101,3 +101,10 @@ export const DriverAccreditationTransport = (data: any) => {
   })
 }
 
+export const GetUserInfo = (code: string) => {
+  return request({
+    url: 'wechat/min/rentUser/add?code=' + code,
+    method: 'GET',
+  })
+}
+

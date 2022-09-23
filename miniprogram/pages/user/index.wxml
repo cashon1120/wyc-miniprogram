@@ -7,4 +7,5 @@
   </view>
 </view>
 
+<listItem label="驾驶员注册" url="/pages/driverAccreditation/default/index" />
 <listItem label="我的注册" url="/pages/myRegist" />

@@ -4,7 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    formItem: Array
+    formItem: Array,
+    loading: Boolean
   },
 
   /**
@@ -24,7 +25,6 @@ Component({
       let value: any = {}
       for (let i = 0; i < formItem.length; i++) {
         const item = formItem[i]
-        value[item.name] = item.value
         if (item.required && (item.value === '' || item.value.length === 0)) {
           wx.showToast({
             title: item.required.message,
@@ -45,6 +45,9 @@ Component({
             }
           }
         }
+        if(item.value){
+          value[item.name] = item.value
+        }
       }
       if (error) return
       this.triggerEvent('submit', value)
@@ -60,7 +63,7 @@ Component({
           item.value = value
         }
       })
-      this.triggerEvent('change', this.data.formItem)
+      this.triggerEvent('change', [...this.data.formItem])
     },
 
     bindUploadChange(e: any) {

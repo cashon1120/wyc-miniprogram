@@ -1,4 +1,5 @@
 import {API_URL} from '../../config/index'
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -18,7 +19,7 @@ Component({
       loading: false,
       value: '',
       progress: '0%',
-      realValue: '',
+      tem_value: '',
     }]
   },
 
@@ -29,14 +30,14 @@ Component({
     formatData(){
       const result: string[] = []
       this.data.imageData.forEach((item: any)  => {
-        if(item.realValue){
-          result.push(item.realValue)
+        if(item.value){
+          result.push(item.value)
         }
       })
       if(this.data.count > 1){
         return result
       }
-      return result[0]
+      return this.data.imageData[0].value
     },
     clearimage(e: any){
       const {index} = e.currentTarget.dataset
@@ -46,9 +47,11 @@ Component({
         if(imageData.length > 1){
           this.data.imageData.splice(index, 1)
         }else{
+          this.data.imageData[0].tem_value = ''
           this.data.imageData[0].value = ''
         }
       }else{
+        this.data.imageData[0].tem_value = ''
         this.data.imageData[0].value = ''
       }
       
@@ -67,36 +70,44 @@ Component({
         mediaType: ['image'],
         sourceType: ['album', 'camera'],
         success: (res: any) => {
-          console.log(res)
           if(count > 1 && !type){
             imageData.push({
               value: '',
-              realValue: '',
+              tem_value: '',
               loading: false,
               progress: '0%',
             })
           }
           imageData[index].loading = true
           const {tempFilePath} = res.tempFiles[0]
-          imageData[index].value = tempFilePath
+          imageData[index].tem_value = tempFilePath
           this.setData({
             imageData: [...imageData]
           })
 
           const uploadTask = wx.uploadFile({
-            url: `${API_URL}/rentOnlineDriverLicenceApplication/upload`,
+            url: `${API_URL}${app.globalData.uploadUrl}`,
             filePath: tempFilePath,
             name: 'file',
             formData: {
               id: 0
             },
             success: (res: any) => {
-              imageData[index].realValue = JSON.parse(res.data).data.path
+              const data = JSON.parse(res.data).data
+              const {code, path} = data
+              if(code === 0){
+                imageData[index].value = path
+                this.setData({
+                  imageData: [...imageData]
+                }, () => {
+                  this.triggerEvent('change', {name: this.data.name, value: this.formatData()})
+                })
+              }
+            },
+            complete: () => {
               imageData[index].loading = false
               this.setData({
                 imageData: [...imageData]
-              }, () => {
-                this.triggerEvent('change', {name: this.data.name, value: this.formatData()})
               })
             }
           })
