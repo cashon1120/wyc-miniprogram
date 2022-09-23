@@ -1,6 +1,10 @@
-<view class="wrapper">
-  <image wx:if="{{value}}" src="{{value}}" mode="widthFix" bindtap="chooseimage"/>
-  <view wx:else class="upload" bindtap="chooseimage" hover-class="upload-hover"><view>+</view>{{uploadText ? uploadText : '点击上传'}}</view>
-  <image wx:if="{{value}}" src="/images/close.png" class="close"  hover-class="upload-hover" mode="widthFix" bindtap="clearimage"/>
-  <view wx:if="{{loading}}" class="progress" style="width: {{progress}};"></view>
+
+<view class="{{count > 1 ? 'container' : null}}">
+  <view wx:for="{{imageData}}" class="wrapper" wx:key="value">
+  <image wx:if="{{item.value}}" src="{{item.value}}" data-index="{{index}}" data-type="update" mode="widthFix" bindtap="chooseimage"/>
+  <view wx:else class="upload" data-index="{{index}}" bindtap="chooseimage" hover-class="upload-hover"><view>+</view>{{uploadText ? uploadText : '点击上传'}}</view>
+
+  <image wx:if="{{item.value}}" data-index="{{index}}" src="/images/close.png" class="close"  hover-class="upload-hover" mode="widthFix" bindtap="clearimage"/>
+  <view wx:if="{{item.loading}}" class="progress" style="width: {{item.progress}};"></view>
+</view>
 </view>

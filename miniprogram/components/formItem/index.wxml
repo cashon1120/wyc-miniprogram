@@ -1,6 +1,6 @@
 <view class="formWrapper">
   <form bindsubmit="submit">
-    <view class="form-item" wx:for="{{formItem}}" wx:key="label" style="width: {{!!item.inline ? '50%' : '100%'}}; display: inline-block;">
+    <view class="form-item" wx:for="{{formItem}}" wx:key="label" style="width: {{!!item.inline ? '48%' : '100%'}}; display: inline-block;">
       <view wx:if="{{item.type === 'picker'}}">
         <view class="label"><FormLabel item="{{item}}" /></view>
         <view class="item">
@@ -48,7 +48,7 @@
 
       <view wx:if="{{item.type === 'upload'}}">
         <view class="label"><FormLabel item="{{item}}" /></view>
-        <Upload name="{{item.name}}" uploadText="{{item.uploadText}}" value="{{item.value}}" bind:change="bindUploadChange" />
+        <Upload name="{{item.name}}" uploadText="{{item.uploadText}}" value="{{item.value}}" bind:change="bindUploadChange" count="{{item.count}}" />
       </view>
       <view wx:if="{{item.des || item.template}}" class="desc">
         {{item.des}}

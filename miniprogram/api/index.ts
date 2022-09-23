@@ -85,3 +85,19 @@ export const CancelOrder = (data: any) => {
   })
 }
 
+export const DriverAccreditation = (data: any) => {
+  return request({
+    url: 'rentOnlineDriverLicenceApplication/add',
+    method: 'POST',
+    data
+  })
+}
+
+export const DriverAccreditationTransport = (data: any) => {
+  return request({
+    url: 'rentRoadTransportLicenceApplication/add',
+    method: 'POST',
+    data
+  })
+}
+
