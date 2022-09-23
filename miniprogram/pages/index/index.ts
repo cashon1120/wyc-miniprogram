@@ -1,4 +1,3 @@
-import {GetUserInfo} from '../../api/index'
 let isSetHeight = false
 Page({
   data: {
@@ -26,24 +25,6 @@ Page({
     ]
   },
 
-  onLoad(){
-    const userID = wx.getStorageSync('userID')
-    if(!userID){
-      wx.login({
-        success: (response: any) => {
-          GetUserInfo(response.code).then((res: any) => {
-            if(res.code === 0){
-              wx.setStorage({
-                key: 'userID',
-                data: res.data.id
-              })
-            }
-          })
-        }
-      })
-    }
-    
-  },
   imageLoad: function () { //获取图片真实宽度  
     if(isSetHeight) return
     let query = wx.createSelectorQuery()

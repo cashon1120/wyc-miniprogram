@@ -1,4 +1,5 @@
-// app.ts
+import {GetUserInfo} from './api/index'
+
 App<IAppOption>({
   globalData: {
       currentCity: {
@@ -17,17 +18,20 @@ App<IAppOption>({
       }
   },
   onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        console.log(res.code)
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      },
-    })
+    const userID = wx.getStorageSync('userID')
+    if(!userID){
+      wx.login({
+        success: (response: any) => {
+          GetUserInfo(response.code).then((res: any) => {
+            if(res.code === 0){
+              wx.setStorage({
+                key: 'userID',
+                data: res.data.id
+              })
+            }
+          })
+        }
+      })
+    }
   },
 })

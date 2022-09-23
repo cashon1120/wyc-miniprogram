@@ -1,4 +1,4 @@
 <view class="item"  hover-class="item-hover" data-url="myReg" bindtap="handleOpenPage">
-  <view>{{label}}</view>
+  <view class="label">{{label}}</view>
   <image src="/images/arrow.png" mode="widthFix" class="arrow" />
 </view>

@@ -48,7 +48,7 @@
 
       <view wx:if="{{item.type === 'upload'}}">
         <view class="label"><FormLabel item="{{item}}" /></view>
-        <Upload name="{{item.name}}" uploadText="{{item.uploadText}}" value="{{item.value}}" bind:change="bindUploadChange" count="{{item.count}}" />
+        <Upload name="{{item.name}}" uploadText="{{item.uploadText || ''}}" value="{{item.value}}" bind:change="bindUploadChange" count="{{item.count || 1}}" />
       </view>
       <view wx:if="{{item.des || item.template}}" class="desc">
         {{item.des}}

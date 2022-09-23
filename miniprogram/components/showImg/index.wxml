@@ -1,6 +1,6 @@
 <view class="wrapper" bindtap="handleHide">
   <view class="bg"></view>
   <view class="content">
-    <image src="{{url}}" mode="widthFix" />
+    <image class="image" src="{{url}}" mode="widthFix" />
   </view>
 </view>

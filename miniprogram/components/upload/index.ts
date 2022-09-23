@@ -113,7 +113,6 @@ Component({
           })
 
           uploadTask.onProgressUpdate((res: any) => {
-            console.log('progress', res)
             imageData[index].progress = res.progress + '%'
               this.setData({
                 imageData: [...imageData]
