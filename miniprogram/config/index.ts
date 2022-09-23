@@ -9,7 +9,8 @@
 // export const API_URL = 'https://cacheapi.emhes.cn/'
 
 // 测试接口地址
-export const API_URL = 'https://wycapi.hi515.cn/'
+// export const API_URL = 'https://wycapi.hi515.cn/'
+export const API_URL = 'http://192.168.10.99:9002'
 
 
 // 腾讯地图key

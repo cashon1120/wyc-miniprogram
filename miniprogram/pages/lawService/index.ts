@@ -7,9 +7,10 @@ Page({
       showPhoneCall: !this.data.showPhoneCall
     })
   },
+
   handleMakePhoneCall(e: any){
     wx.makePhoneCall({
-      phoneNumber: e.currentTarget.dataset.value
+      phoneNumber: '028-61301149'
     })
   }
 })

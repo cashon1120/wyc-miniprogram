@@ -1,13 +1,19 @@
-
-<image src="/images/law_pic.jpg" mode="widthFix" class="banner" />
-<view class="call-text"><my-button title="一键拨打，开始咨询"  bind:click="toggleShow"/></view>
+<view class="title">法律服务</view>
+<image src="/images/law_pic.png" mode="widthFix" class="banner" />
+<view class="h1">一键拨打，开启咨询</view>
+<view class="call-text" bindtap="handleMakePhoneCall">
+  <view>
+    <image src="/images/icon_phone.png" mode="widthFix" />
+    <view>028-61301149</view>
+  </view>
+</view>
 <view class="flex-box">
   <view class="label">服务时间:</view>
   <view class="content">工作日8:39 - 12:00, 14:00-18:00</view>
 </view>
 <view class="flex-box">
-  <view class="label">公司地址:</view>
-  <view class="content">武侯区中海国际中心B座2101-2104</view>
+  <view class="label">服务内容:</view>
+  <view class="content">法律问题咨询。在四川省内发生的法律纠纷，符合救助条件的困难货车司机可申请法律援助</view>
 </view>
 <view class="flex-box">
   <view class="label">收费标准:</view>

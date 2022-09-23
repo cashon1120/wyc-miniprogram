@@ -1,27 +1,59 @@
 page{
   text-align: center;
+  padding: 0 12%;
+  box-sizing: border-box;
+}
+.title{
+  font-size: 70rpx;
+  color: #00AD81;
+  letter-spacing: 10rpx;
+  padding: 50rpx;
 }
 .banner{
-  width: 70%;
+  width: 100%;
   height: auto;
-  margin-top: 60rpx;
+}
+.h1{
+  font-size: 42rpx;
+  color: #000;
+  padding-top: 40rpx;
 }
 .call-text{
-  padding: 80rpx;
+  background-color: #00AD81;
+  border-radius: 60rpx;
+  text-align: center;
+  color: #fff;
+  padding: 30rpx;
+  font-size: 44rpx;
+  height: 60rpx;
+  margin-bottom: 40rpx;
+  margin-top: 30rpx;
+  &>view{
+    position: absolute;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  image{
+    width: 55rpx;
+    height: 55rpx;
+    margin-right: 30rpx;
+  }
 }
 .flex-box {
   display: flex;
   align-items: flex-start;
   margin-bottom: 20rpx;
   font-size: 28rpx;
+  color: #444444;
   .label{
     margin-right: 30rpx;
-    padding-left: 40rpx;
   }
   .content{
     flex: 1;
     text-align: left;
-    padding-right: 40rpx;
   }
 }
 .modal{
