@@ -1,1 +1,48 @@
-<FormItem formItem="{{formItem}}" bind:submit="handleSubmit" bind:change="handleFormChange" />
+<view wx:if="{{hasData}}">
+  <view class="item">
+    <view class="label">姓名:</view>
+    <view class="content">{{formData.driverName}}</view>
+  </view>
+  <view class="item">
+    <view class="label">手机号:</view>
+    <view class="content">{{formData.phone}}</view>
+  </view>
+  <view class="item">
+    <view class="label">身份证:</view>
+    <view class="content">
+      <MyImage src="{{formData.identityCardFont}}" />
+      <MyImage src="{{formData.identityCardBack}}" />
+    </view>
+  </view>
+  <view class="item">
+    <view class="label">驾驶证:</view>
+    <view class="content">
+      <MyImage src="{{formData.drivingLicenceFont}}" />
+      <MyImage src="{{formData.drivingLicenceBack}}" />
+    </view>
+  </view>
+  <view class="item">
+    <view class="label">登记证书:</view>
+    <view class="content">
+      <MyImage src="{{formData.registrationCertificateUrl}}" />
+    </view>
+  </view>
+  <view class="item" wx:if="{{formData.vehicleUrl}}">
+    <view class="label">车辆正面45度角:</view>
+    <view class="content">
+      <MyImage src="{{formData.vehicleUrl}}" />
+    </view>
+  </view>
+  <view class="item" wx:if="{{formData.brand}}">
+    <view class="label">车辆品牌:</view>
+    <view class="content">{{formData.brand}}</view>
+  </view>
+  <view class="item" wx:if="{{formData.model}}">
+    <view class="label">车辆型号:</view>
+    <view class="content">{{formData.model}}</view>
+  </view>
+  <view style="padding: 50rpx 30rpx;">
+    <MyButton title="撤销申请" bind:click="handleCancel" />
+  </view>
+</view>
+<FormItem wx:else formItem="{{formItem}}" bind:submit="handleSubmit" bind:change="handleFormChange" />

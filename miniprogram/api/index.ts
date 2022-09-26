@@ -93,9 +93,41 @@ export const DriverAccreditation = (data: any) => {
   })
 }
 
+export const GetDriverAccreditation = (data: any) => {
+  return request({
+    url: 'rentOnlineDriverLicenceApplication/get',
+    method: 'POST',
+    data
+  })
+}
+
+export const CancelDriverAccreditation = (data: any) => {
+  return request({
+    url: 'rentOnlineDriverLicenceApplication/cancel',
+    method: 'POST',
+    data
+  })
+}
+
 export const DriverAccreditationTransport = (data: any) => {
   return request({
     url: 'rentRoadTransportLicenceApplication/add',
+    method: 'POST',
+    data
+  })
+}
+
+export const GetDriverAccreditationTransport = (data: any) => {
+  return request({
+    url: 'rentRoadTransportLicenceApplication/get',
+    method: 'POST',
+    data
+  })
+}
+
+export const CancelDriverAccreditationTransport = (data: any) => {
+  return request({
+    url: 'rentRoadTransportLicenceApplication/cancel',
     method: 'POST',
     data
   })

@@ -1,0 +1,4 @@
+<view style="width: 120rpx; margin-right: 30rpx;">
+  <image src="{{src}}" mode="scaleToFill" class="img" bindtap="handleShowImg" />
+</view>
+<ShowImage wx:if="{{url}}" url="{{src}}" bind:click="handleHideImg" />

@@ -4,7 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    item: Object
+    item: Object,
+    disableShowRequire: Boolean
   },
 
   /**
@@ -12,6 +13,12 @@ Component({
    */
   data: {
 
+  },
+
+  lifetimes: {
+    created(){
+      console.log(this.data.disableShowRequire)
+    }
   },
 
   /**

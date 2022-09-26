@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "FormItem": "/components/formItem"
+    "FormItem": "/components/formItem",
+    "MyImage": "/components/image",
+    "MyButton": "/components/button"
   },
   "navigationBarTitleText": "道路运输证"
 }

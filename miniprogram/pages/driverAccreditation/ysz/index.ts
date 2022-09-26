@@ -1,4 +1,4 @@
-import { DriverAccreditationTransport } from '../../../api/index'
+import { DriverAccreditationTransport, GetDriverAccreditationTransport, CancelDriverAccreditationTransport } from '../../../api/index'
 const app = getApp()
 Page({
 
@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hasData: false,
+    formData: {},
     formItem: [
       { label: '您的姓名', name: 'driverName', value: '', placeholder: '请输入您的姓名', type: 'input', required: { message: '请输入您的姓名' } },
       { label: '您的手机号', name: 'phone', value: '', placeholder: '请输入您的手机号', type: 'input', inputType: 'number', required: { message: '请输入您的手机号' }, validate: { message: '请输入正确的11位手机号', exec: (phone: string) => /^1\d{10}$/.test(phone) } },
@@ -23,6 +25,16 @@ Page({
   onLoad() {
     app.globalData.uploadUrl = 'rentRoadTransportLicenceApplication/upload'
   },
+  onReady() {
+    GetDriverAccreditationTransport({ rentUserId: wx.getStorageSync('userID') }).then((res: any) => {
+      if (res.code === 0 && res.data) {
+        this.setData({
+          hasData: true,
+          formData: res.data
+        })
+      }
+    })
+  },
   handleFormChange(e: any) {
     this.setData({
       formItem: e.detail
@@ -32,14 +44,58 @@ Page({
     this.setData({
       loading: true
     })
-    DriverAccreditationTransport({...e.detail, userID: wx.getStorageSync('userID')}).then((res: any) => {
+    DriverAccreditationTransport({...e.detail, rentUserId: wx.getStorageSync('userID')}).then((res: any) => {
       if (res.code === 0) {
-        wx.navigateBack()
+        switch (res.data.code) {
+          case 0:
+            wx.navigateBack()
+            wx.showToast({
+              title: '申请成功',
+              icon: 'none'
+            })
+            break;
+          case 1:
+            wx.showToast({
+              title: '申请失败',
+              icon: 'none'
+            })
+            break;
+          case 2:
+            wx.showToast({
+              title: '您已申请',
+              icon: 'none'
+            })
+            break;
+        }
       }
     }).finally(() => {
       this.setData({
         loading: true
       })
+    })
+  },
+  handleCancel() {
+    wx.showModal({
+      title: '系统提示',
+      content: '确定要撤销当前申请吗？',
+      success: (res: any) => {
+        if (res.confirm) {
+          CancelDriverAccreditationTransport({ rentUserId: wx.getStorageSync('userID') }).then((res: any) => {
+            if (res.code === 0) {
+              switch (res.data.code) {
+                case 0:
+                  wx.navigateBack()
+                  break;
+                case 1:
+                  wx.showToast({
+                    title: '撤销失败',
+                    icon: 'none'
+                  })
+              }
+            }
+          })
+        }
+      }
     })
   }
 })
