@@ -19,10 +19,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handleOpenPage(){
-      wx.navigateTo({
-        url: this.data.url
-      })
+    handleTap(){
+      if(this.data.url){
+        wx.navigateTo({
+          url: this.data.url
+        })
+        return
+      }
+      this.triggerEvent('click')
     }
   }
 })

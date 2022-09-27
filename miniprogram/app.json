@@ -11,7 +11,10 @@
     "pages/lawService/index",
     "pages/driverAccreditation/default/index",
     "pages/driverAccreditation/wyc/index",
-    "pages/driverAccreditation/ysz/index"
+    "pages/driverAccreditation/ysz/index",
+    "pages/myRecommend/index",
+    "pages/myUseCar/index",
+    "pages/myRentalCar/index"
   ],
   "requiredPrivateInfos": [
     "getLocation"

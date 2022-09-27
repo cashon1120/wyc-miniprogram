@@ -49,7 +49,9 @@ Page({
     })
   },
 
-  handleOpenPage(e: any){
-    console.log(e.currentTarget.dataset.url)
+  handleCall(){
+    wx.makePhoneCall({
+      phoneNumber: '4008-460-999'
+    })
   }
 })

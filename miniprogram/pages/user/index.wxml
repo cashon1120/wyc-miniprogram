@@ -8,4 +8,7 @@
 </view>
 
 <listItem label="驾驶员注册" url="/pages/driverAccreditation/default/index" />
-<listItem label="我的注册" url="/pages/myRegist" />
+<listItem label="我的推荐" url="/pages/myRecommend/index" />
+<listItem label="租车申请" url="/pages/myRentalCar/index" />
+<listItem label="用车申请" url="/pages/myUseCar/index" />
+<listItem label="服务热线: 4008-460-999" bind:click="handleCall" />
