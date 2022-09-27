@@ -1,5 +1,5 @@
-import { GetLoginUrl } from '../../../api/index'
-import { checkUserPhone } from '../../../utils/util'
+import { GetLoginUrl } from '../../api/index'
+import { checkUserPhone } from '../../utils/util'
 
 const app = getApp();
 

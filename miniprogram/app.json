@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/taxi/default/index",
+    "pages/taxi/index",
     "pages/education/index",
     "pages/charge/index",
     "pages/webView/index",

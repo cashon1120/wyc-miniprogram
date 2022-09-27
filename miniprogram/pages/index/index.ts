@@ -12,7 +12,7 @@ Page({
     height: 0,
     items: [
       { url: 'charge', src: '../../images/icon_5.png', label: '充电' },
-      { url: 'taxi/default', type: 2, src: '../../images/icon_7.png', label: '打车' },
+      { url: 'taxi', type: 2, src: '../../images/icon_7.png', label: '打车' },
       { url: 'regist', src: '../../images/icon_2.png', label: '注册平台' },
       { url: 'rentalCars', src: '../../images/icon_3.png', label: '租车' },
       { url: '', src: '../../images/icon_4.png', label: '租房' },
