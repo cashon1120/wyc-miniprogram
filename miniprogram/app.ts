@@ -26,7 +26,7 @@ App<IAppOption>({
             if(res.code === 0){
               wx.setStorage({
                 key: 'userID',
-                data: res.data.id
+                data: res.data.rentUserId
               })
             }
           })

@@ -1,0 +1,9 @@
+<view wx:if="{{status === 1}}" class="status">
+  <view class="status-dot status1" />待处理
+</view>
+<view wx:if="{{status === 2}}" class="status">
+  <view class="status-dot status2" />已通过
+</view>
+<view wx:if="{{status === 4}}" class="status">
+  <view class="status-dot status4" />不通过
+</view>

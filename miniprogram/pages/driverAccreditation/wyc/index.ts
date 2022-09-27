@@ -1,4 +1,4 @@
-import { DriverAccreditation, GetDriverAccreditation, CancelDriverAccreditation } from '../../../api/index'
+import { DriverAccreditation,  CancelDriverAccreditation } from '../../../api/index'
 const app = getApp()
 Page({
 
@@ -23,16 +23,6 @@ Page({
   },
   onLoad() {
     app.globalData.uploadUrl = 'rentOnlineDriverLicenceApplication/upload'
-  },
-  onReady() {
-    GetDriverAccreditation({ rentUserId: wx.getStorageSync('userID') }).then((res: any) => {
-      if (res.code === 0 && res.data) {
-        this.setData({
-          hasData: true,
-          formData: res.data
-        })
-      }
-    })
   },
   handleFormChange(e: any) {
     this.setData({
