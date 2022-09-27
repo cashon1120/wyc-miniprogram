@@ -14,7 +14,8 @@
     "pages/driverAccreditation/ysz/index",
     "pages/myRecommend/index",
     "pages/myUseCar/index",
-    "pages/myRentalCar/index"
+    "pages/myRentalCar/index",
+    "pages/meeting/index"
   ],
   "requiredPrivateInfos": [
     "getLocation"
