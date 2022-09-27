@@ -4,7 +4,6 @@
     "pages/taxi/default/index",
     "pages/education/index",
     "pages/charge/index",
-    "pages/getPhone/index",  
     "pages/webView/index",
     "pages/user/index",
     "pages/regist/index",
