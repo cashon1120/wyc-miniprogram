@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "my-button": "../../../components/button"
-  },
-  "navigationBarTitleText": "打车"
-}

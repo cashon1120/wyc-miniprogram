@@ -1,2 +1,1 @@
-
-<view class="wrapper"></view>
+<GetPhone wx:if="{{showPhone}}" bind:callback="handleGetPhoneCallback" />

@@ -25,14 +25,6 @@ Page({
     ]
   },
 
-  onLoad(){
-    wx.getUserInfo({
-      success: (res: any) => {
-        console.log(res)
-      }
-    })
-  },
-
   imageLoad: function () { //获取图片真实宽度  
     if(isSetHeight) return
     let query = wx.createSelectorQuery()

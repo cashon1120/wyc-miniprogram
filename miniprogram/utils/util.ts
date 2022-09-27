@@ -23,10 +23,7 @@ export const checkUserPhone = () => {
   try{
     var value = wx.getStorageSync('userPhone')
     if (!value) {
-     wx.navigateTo({
-       url: '/pages/getPhone/index'
-     })
-     return
+     return null
     }
     return value
   }catch(e: any){
