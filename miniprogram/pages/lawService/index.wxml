@@ -1,10 +1,10 @@
 <view class="title">法律服务</view>
 <image src="/images/law_pic.png" mode="widthFix" class="banner" />
 <view class="h1">一键拨打，开启咨询</view>
-<view class="call-text" bindtap="handleMakePhoneCall">
+<view class="call-text" bindtap="handleMakePhoneCall" hover-class="hover-class">
   <view>
     <image src="/images/icon_phone.png" mode="widthFix" />
-    <view>028-61301149</view>
+    <view style="flex: 1; white-space: nowrap;">028-61301149</view>
   </view>
 </view>
 <view class="flex-box">
