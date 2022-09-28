@@ -1,25 +1,23 @@
-<view class="wrapper">
-  <view wx:if="{{data1}}" class="list">
-    <view class="content">
-      <view>我的人证</view>
-      <view>{{data1.driverName}} {{data1.phone}}</view>
-      <view>{{data1.createTime}}</view>
-    </view>
-    <view class="status">
-      <Status status="{{data1.status}}" />
-    </view>
+<view wx:if="{{data1}}" class="list">
+  <view class="content">
+    <view>我的人证</view>
+    <view>{{data1.driverName}} {{data1.phone}}</view>
+    <view>{{data1.createTime}}</view>
   </view>
-  <ListItem wx:else label="网约车驾驶资格证" url="/pages/driverAccreditation/wyc/index" />
-
-  <view wx:if="{{data2}}" class="list">
-    <view class="content">
-      <view>我的车证</view>
-      <view>{{data2.driverName}} {{data2.phone}}</view>
-      <view>{{data2.createTime}}</view>
-    </view>
-    <view class="status">
-      <Status status="{{data2.status}}" />
-    </view>
+  <view class="status">
+    <Status status="{{data1.status}}" />
   </view>
-  <ListItem wx:else label="道路运输证" url="/pages/driverAccreditation/ysz/index" />
 </view>
+<ListItem wx:else label="网约车驾驶资格证" url="/pages/driverAccreditation/wyc/index" />
+
+<view wx:if="{{data2}}" class="list">
+  <view class="content">
+    <view>我的车证</view>
+    <view>{{data2.driverName}} {{data2.phone}}</view>
+    <view>{{data2.createTime}}</view>
+  </view>
+  <view class="status">
+    <Status status="{{data2.status}}" />
+  </view>
+</view>
+<ListItem wx:else label="道路运输证" url="/pages/driverAccreditation/ysz/index" />

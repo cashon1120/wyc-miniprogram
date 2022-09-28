@@ -15,7 +15,10 @@
     "pages/myRecommend/index",
     "pages/myUseCar/index",
     "pages/myRentalCar/index",
-    "pages/meeting/index"
+    "pages/meeting/index",
+    "pages/meeting/default/index",
+    "pages/meeting/driver/index",
+    "pages/meeting/user/index"
   ],
   "requiredPrivateInfos": [
     "getLocation"

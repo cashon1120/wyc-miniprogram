@@ -140,3 +140,19 @@ export const GetUserInfo = (code: string) => {
   })
 }
 
+export const MeetingUserAdd = (data: any) => {
+  return request({
+    url: 'meetingUseCar/add',
+    method: 'POST',
+    data
+  })
+}
+
+export const MeetingDriverAdd = (data: any) => {
+  return request({
+    url: 'meetingDriver/add',
+    method: 'POST',
+    data
+  })
+}
+
