@@ -18,14 +18,9 @@ const formatNumber = (n: number) => {
   return s[1] ? s : '0' + s
 }
 
-
 export const checkUserPhone = () => {
   try {
-    var value = wx.getStorageSync('userPhone')
-    if (!value) {
-      return null
-    }
-    return value
+    return wx.getStorageSync('userPhone')
   } catch (e: any) {
     console.log('获取失败')
   }
