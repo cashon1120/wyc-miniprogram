@@ -1,46 +1,80 @@
-<view wx:if="{{hasData}}">
-  <view class="item">
-    <view class="label">姓名:</view>
-    <view class="content">{{formData.driverName}}</view>
-  </view>
-  <view class="item">
-    <view class="label">手机号:</view>
-    <view class="content">{{formData.phone}}</view>
-  </view>
-  <view class="item">
-    <view class="label">半身照:</view>
-    <view class="content">
-      <MyImage src="{{formData.photo}}" />
+<Step steps="{{steps}}" stepIndex="{{stepIndex}}" />
+
+<!--第一步-->
+<FormItem wx:if="{{stepIndex === 0}}" formItem="{{formItem[stepIndex]}}" bind:submit="handleSubmit" bind:change="handleFormChange" disableButton="{{true}}" />
+<!--第二步-->
+<view wx:if="{{stepIndex === 1}}">
+  <view class="uploadFormItem line">
+    <view class="label">半身照</view>
+    <view class="body-photo">
+      <view>
+        <image mode="widthFix" class="photo" src="{{formItem[1][0].defaultValue}}" />
+      </view>
+      <view>
+        <view class="list">
+          <view class="step">1</view>
+          纯白色背景，保证光线充足均匀
+        </view>
+        <view class="list">
+          <view class="step">2</view>
+          头部居中，正面正对镜头
+        </view>
+        <view style="margin-bottom: 40rpx;" class="list">
+          <view class="step">3</view>
+          露出眉毛和耳朵，面部无遮拦
+        </view>
+        <view class="button-small" data-name="photo" bindtap="handleUpload" hover-class="button-small-hover">选择照片 + </view>
+      </view>
     </view>
   </view>
-  <view class="item">
-    <view class="label">身份证:</view>
-    <view class="content">
-      <MyImage src="{{formData.identityCardFont}}" />
-      <MyImage src="{{formData.identityCardBack}}" />
+
+  <view class="uploadFormItem">
+    <view class="label">身份证</view>
+    <view class="body-photo">
+      <view class="card-photo" data-name="identityCardFont" bindtap="handleUpload">
+        <image class="image" src="{{formItem[1][1].defaultValue}}" mode="aspectFit" />
+        <UploadIcon wx:if="{{formItem[1][1].value === ''}}" title="上传人像面" />
+      </view>
+      <view class="center"></view>
+      <view class="card-photo" data-name="identityCardBack" bindtap="handleUpload">
+        <image class="image" src="{{formItem[1][2].defaultValue}}" mode="aspectFit" />
+        <UploadIcon wx:if="{{formItem[1][2].value === ''}}" title="上传国徽面" />
+      </view>
     </view>
   </view>
-  <view class="item">
-    <view class="label">驾驶证:</view>
-    <view class="content">
-      <MyImage src="{{formData.driverLicenceFont}}" />
-      <MyImage src="{{formData.driverLicenceBack}}" />
-    </view>
-  </view>
-  <view class="item" wx:if="{{formData.residencePermit}}">
-    <view class="label">居住证:</view>
-    <view class="content">
-      <MyImage src="{{formData.residencePermit}}" />
-    </view>
-  </view>
-  <view class="item" wx:if="{{formData.otherCertificateList && formData.otherCertificateList.length > 0}}">
-    <view class="label">无犯罪记录证明:</view>
-    <view class="content">
-      <MyImage wx:for="{{formData.otherCertificateList}}" key="item" src="{{item}}" />
-    </view>
-  </view>
-  <view style="padding: 50rpx 30rpx;">
-    <MyButton title="撤销申请" bind:click="handleCancel" />
-  </view>
+  <Tips text="上传身份证，确保图片清晰，四角完整" />
 </view>
-<FormItem wx:else loading="{{loading}}" formItem="{{formItem}}" bind:submit="handleSubmit" bind:change="handleFormChange" />
+
+<!--第三步-->
+<view wx:if="{{stepIndex === 2}}">
+  <view class="uploadFormItem">
+    <view class="label">驾驶证</view>
+    <view class="driver-photo" data-name="driverLicenceFont" bindtap="handleUpload">
+      <image class="image" src="{{formItem[2][0].defaultValue}}" mode="aspectFit" />
+      <UploadIcon wx:if="{{formItem[2][0].value === ''}}" title="上传驾驶证正页" />
+    </view>
+    <view class="driver-photo" data-name="driverLicenceBack" bindtap="handleUpload">
+      <image class="image" src="{{formItem[2][1].defaultValue}}" mode="aspectFit" />
+      <UploadIcon wx:if="{{formItem[2][1].value === ''}}" title="上传驾驶证副页" />
+    </view>
+  </view>
+  <Tips text="上传驾驶证，确保图片清晰，四角完整" />
+</view>
+
+<!--第四步-->
+<view wx:if="{{stepIndex === 3}}">
+  <view class="uploadFormItem">
+    <view class="label">居住证</view>
+    <view class="driver-photo" data-name="residencePermit" bindtap="handleUpload">
+      <image class="image" src="{{formItem[3][0].defaultValue}}" mode="aspectFit" />
+      <UploadIcon wx:if="{{formItem[3][0].value === ''}}" title="上传居住证" />
+    </view>
+  </view>
+  <Tips text="上传居住证，确保图片清晰，四角完整" />
+  <view class="line" style="margin-top: 40rpx;"></view>
+  <FormItem formItem="{{formItem[4]}}" bind:submit="handleSubmit" bind:change="handleFormChange" disableButton="{{true}}" />
+</view>
+
+<view class="step-button-wrapper">
+  <MyButton title="{{stepIndex <=2 ? '下一步' : '提交'}}" bind:click="handleNext" />
+</view>

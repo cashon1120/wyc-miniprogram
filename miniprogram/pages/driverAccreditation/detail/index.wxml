@@ -1,0 +1,25 @@
+<view class="banner-wrapper">
+  <image src="{{data.identityCardBack}}" mode="widthFix" class="banner" />
+</view>
+
+<view class="list">
+  <view class="label">驾驶员</view> {{data.driverName}}
+</view>
+<view class="list">
+  <view class="label">手机号</view> {{data.phone}}
+</view>
+<view wx:if="{{!data.brand}}">
+
+</view>
+
+<view wx:else>
+  <view class="list">
+    <view class="label">车型</view> {{data.brand}}
+  </view>
+</view>
+<view class="refused" wx:if="{{data.status === 4}}">
+  失败原因: {{data.auditRemark}}
+</view>
+<view class="step-button-wrapper" wx:if="{{data.status === 1}}">
+  <view class="delete" hover-class="hover" bindtap="handleCancel">删除</view>
+</view>

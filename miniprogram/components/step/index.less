@@ -1,0 +1,51 @@
+.form-step{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #C4C4C4;
+  padding-top: 50rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 20rpx solid #F4F4F4;
+  .step-number{
+    width: 55rpx;
+    height: 55rpx;
+    background-color: #A9E2D3;
+    margin: auto;
+    border-radius: 100%;
+    line-height: 55rpx;
+    font-size: 30rpx;
+    margin-bottom: 15rpx;
+    position: relative;
+    z-index: 99;
+    color: #fff;
+  }
+  .step-list{
+    flex: 1;
+    text-align: center;
+    position: relative;
+    &.active{
+      color: #00AD81;
+      .step-number{
+        background-color: #00AD81;
+      }
+      &::after{
+        background-color: #00AD81;
+      }
+    }
+    &:last-child{
+      &::after{
+        display: none;
+      }
+    }
+    &::after{
+      content: '';
+      display: block;
+      height: 4rpx;
+      top: 25rpx;
+      width: 100%;
+      position: absolute;
+      left: 110rpx;
+      background-color: #A9E2D3;
+    }
+  }
+}

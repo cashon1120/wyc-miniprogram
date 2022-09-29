@@ -2,7 +2,10 @@
   "usingComponents": {
     "FormItem": "/components/formItem",
     "MyImage": "/components/image",
-    "MyButton": "/components/button"
+    "MyButton": "/components/button",
+    "UploadIcon": "/components/uploadIcon",
+    "Tips": "/components/tips",
+    "Step": "/components/step"
   },
   "navigationBarTitleText": "道路运输证"
 }

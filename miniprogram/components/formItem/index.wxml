@@ -1,6 +1,6 @@
-<view class="formWrapper">
+<view class="formWrapper {{inline ? 'inline-formWrapper' : null}}">
   <form bindsubmit="submit">
-    <view class="form-item" wx:for="{{formItem}}" wx:key="label" style="width: {{!!item.inline ? '48%' : '100%'}}; display: inline-block;">
+    <view class="form-item {{inline ? 'inline-form-item' : null}}" wx:for="{{formItem}}" wx:key="label" style="width: {{!!item.inline ? '48%' : '100%'}}; display: inline-block;">
       <view wx:if="{{item.type === 'picker'}}">
         <view class="label"><FormLabel item="{{item}}" /></view>
         <view class="item">
@@ -28,7 +28,7 @@
         </view>
       </view>
 
-      <view wx:if="{{item.type === 'input'}}">
+      <view wx:if="{{item.type === 'input'}}" class="{{inline ? 'inline' : null}}">
         <view class="label"><FormLabel item="{{item}}" /></view>
         <view class="item">
           <input maxlength="{{item.maxLength || 16}}" type="{{item.inputType || 'text'}}" data-name="{{item.name}}" bindinput="bindFormChange" value="{{item.value}}" placeholder="{{item.placeholder}}" name="{{item.name}}" placeholder-class="placeholder" />
@@ -56,7 +56,7 @@
       </view>
     </view>
 
-    <view class="form-submit-wrapper">
+    <view class="form-submit-wrapper" wx:if="{{!disableButton}}">
       <my-button title="提交" loading="{{loading}}" form-type="submit" />
     </view>
   </form>

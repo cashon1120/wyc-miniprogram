@@ -1,0 +1,43 @@
+page{
+  padding-bottom: calc(250rpx + constant(safe-area-inset-bottom));
+  padding-bottom: calc(250rpx + env(safe-area-inset-bottom));
+}
+.banner-wrapper{
+  text-align: center;
+  border-bottom: 1px solid #E5E5E5;
+  padding: 40rpx 0;
+}
+.banner{
+  width: 80%;
+  display: inline-block;
+  margin: auto;
+}
+
+.list {
+  border-bottom: 1px solid #E5E5E5;
+  display: flex;
+  align-items: center;
+  color: #333333;
+  font-size: 32rpx;
+  padding: 30rpx;
+  .label{
+    color: #777777;
+    width: 200rpx;
+  }
+}
+.delete{
+  text-align: center;
+  padding: 30rpx;
+  border: 1px solid #D9021B;
+  color: #D9021B;
+  font-size: 32rpx;
+  border-radius: 15rpx;
+  &.hover{
+    background-color: #fafafa;
+  }
+}
+
+.refused{
+  padding: 30rpx;
+  color: #EF1D12;
+}

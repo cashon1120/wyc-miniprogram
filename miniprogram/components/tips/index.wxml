@@ -1,0 +1,3 @@
+<view class="upload-tips">
+    <view class="upload-tips-text">{{text}}</view>
+  </view>

@@ -105,6 +105,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/sucess/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

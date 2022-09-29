@@ -1,0 +1,6 @@
+<view class="form-step">
+  <view wx:for="{{steps}}" wx:key="item" class="step-list {{stepIndex >= index ? 'active' : null}}">
+    <view class="step-number">{{index + 1}}</view>
+    <view>{{item}}</view>
+  </view>
+</view>

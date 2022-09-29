@@ -156,3 +156,11 @@ export const MeetingDriverAdd = (data: any) => {
   })
 }
 
+export const AddSqOrder = (data: any) => {
+  return request({
+    url: 'onlineCarOrder/add',
+    method: 'POST',
+    data
+  })
+}
+

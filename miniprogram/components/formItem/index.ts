@@ -5,7 +5,9 @@ Component({
    */
   properties: {
     formItem: Array,
-    loading: Boolean
+    loading: Boolean,
+    disableButton: Boolean,
+    inline: Boolean
   },
 
   /**

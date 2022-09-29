@@ -1,13 +1,52 @@
 page {
-  background-color: #F4F5F7;
+  background-color: #F4F4F4;
   padding-top: 30rpx;
 }
 .list{
   display: flex;
   align-items: center;
-  padding: 30rpx;
+  padding: 40rpx 30rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #F4F4F4;
+  &.hover-class{
+    background-color: #fafafa;
+  }
+  .title{
+    font-size: 34rpx;
+    color: #333;
+    padding-bottom: 15rpx;
+  }
   .content{
     flex: 1;
+    font-size: 28rpx;
+    color: #777;
+    line-height: 45rpx;
+  }
+}
+
+.buttons{
+  display: flex;
+  padding: 0 50rpx;
+  justify-content: center;
+  margin-top: 50rpx;
+  .button-item{
+    width: 50%;
+    text-align: center;
+    &:first-child{
+      margin-right: 25rpx;
+    }
+    &:last-child{
+      margin-left: 25rpx;
+    }
+  }
+  .icon-wrapper{
+    padding: 60rpx;
+    background-color: #fff;
+    margin-bottom: 30rpx;
+    image{
+      width: 148rpx;
+      height: 148rpx;
+    }
   }
 }
 

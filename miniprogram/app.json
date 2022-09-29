@@ -18,7 +18,10 @@
     "pages/meeting/index",
     "pages/meeting/default/index",
     "pages/meeting/driver/index",
-    "pages/meeting/user/index"
+    "pages/meeting/user/index",
+    "pages/sqpay/index",
+    "pages/sucess/index",
+    "pages/driverAccreditation/detail/index"
   ],
   "requiredPrivateInfos": [
     "getLocation"
