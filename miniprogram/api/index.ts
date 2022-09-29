@@ -47,7 +47,7 @@ export const GetPhoneNumber = (code: string) => {
 
 export const GetLoginUrl = (data: any) => {
   return request({
-    url: `shouyue/getLoginUrl`,
+    url: `shouQi/getLoginUrl`,
     method: 'POST',
     data
   })

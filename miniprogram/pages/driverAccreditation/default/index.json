@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "ListItem": "/components/listItem",
-    "Status": "/components/status"
+    "Status": "/components/status",
+    "MyButton": "/components/button"
   },
   "navigationBarTitleText": "司机办证"
 }

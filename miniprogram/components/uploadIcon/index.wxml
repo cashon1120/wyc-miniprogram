@@ -1,4 +1,4 @@
 <view class="uploadIcon">
-  <image src="/images/icon_upload.png" class="icon" mode="widthFix" />
+  <image src="/images/icon_upload.png" class="icon {{size}}" mode="widthFix" />
   {{title}}
 </view>

@@ -8,14 +8,12 @@
   <view class="uploadFormItem">
     <view class="label">身份证</view>
     <view class="body-photo">
-      <view class="card-photo" data-name="identityCardFont" bindtap="handleUpload">
-        <image class="image" src="{{formItem[1][0].defaultValue}}" mode="aspectFit" />
-        <UploadIcon wx:if="{{formItem[1][0].value === ''}}" title="上传人像面" />
+      <view class="card-photo">
+        <UploadImage data="{{formItem[1][0]}}" scale="{{200 / 310}}" name="identityCardFont" title="上传人像面" bind:upload="handleUpload" />
       </view>
       <view class="center"></view>
       <view class="card-photo" data-name="identityCardBack" bindtap="handleUpload">
-        <image class="image" src="{{formItem[1][1].defaultValue}}" mode="aspectFit" />
-        <UploadIcon wx:if="{{formItem[1][1].value === ''}}" title="上传国徽面" />
+        <UploadImage data="{{formItem[1][1]}}" scale="{{200 / 310}}" name="identityCardBack" title="上传国徽面" bind:upload="handleUpload" />
       </view>
     </view>
   </view>
@@ -26,13 +24,11 @@
 <block wx:if="{{stepIndex === 2}}">
   <view class="uploadFormItem">
     <view class="label">行驶证</view>
-    <view class="driver-photo" data-name="drivingLicenceFont" bindtap="handleUpload">
-      <image class="image" src="{{formItem[2][0].defaultValue}}" mode="aspectFit" />
-      <UploadIcon wx:if="{{formItem[2][0].value === ''}}" title="上传行驶证正页" />
+    <view class="driver-photo">
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[2][0]}}" name="drivingLicenceFont" title="上传行驶证正页" bind:upload="handleUpload" />
     </view>
-    <view class="driver-photo" data-name="drivingLicenceBack" bindtap="handleUpload">
-      <image class="image" src="{{formItem[2][1].defaultValue}}" mode="aspectFit" />
-      <UploadIcon wx:if="{{formItem[2][1].value === ''}}" title="上传行驶证副页" />
+    <view class="driver-photo">
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[2][1]}}" name="drivingLicenceBack" title="上传行驶证副页" bind:upload="handleUpload" />
     </view>
   </view>
   <Tips text="上传驾驶证，确保图片清晰，四角完整" />
@@ -42,17 +38,15 @@
 <block wx:if="{{stepIndex === 3}}">
   <view class="uploadFormItem line">
     <view class="label">登记证书</view>
-    <view class="driver-photo" data-name="registrationCertificateUrl" bindtap="handleUpload">
-      <image class="image" src="{{formItem[3][0].defaultValue}}" mode="aspectFit" />
-      <UploadIcon wx:if="{{formItem[3][0].value === ''}}" title="上传登记证书" />
+    <view class="driver-photo">
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[3][0]}}" name="registrationCertificateUrl" title="上传登记证书" bind:upload="handleUpload" />
     </view>
   </view>
 
   <view class="uploadFormItem">
     <view class="label">车辆正面45度角</view>
     <view class="driver-photo" data-name="vehicleUrl" bindtap="handleUpload">
-      <image class="image" src="{{formItem[3][1].defaultValue}}" mode="aspectFit" />
-      <UploadIcon wx:if="{{formItem[3][1].value === ''}}" title="上传车辆照片" />
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[3][1]}}" name="vehicleUrl" title="上传车辆照片" bind:upload="handleUpload" />
     </view>
   </view>
 

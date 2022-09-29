@@ -7,8 +7,8 @@
   <view class="uploadFormItem line">
     <view class="label">半身照</view>
     <view class="body-photo">
-      <view>
-        <image mode="widthFix" class="photo" src="{{formItem[1][0].defaultValue}}" />
+      <view style="width: 182rpx; margin-right: 40rpx;">
+        <UploadImage id="uploadPhoto" scale="{{205 / 182}}" data="{{formItem[1][0]}}" name="photo" bind:upload="handleUpload" />
       </view>
       <view>
         <view class="list">
@@ -19,11 +19,11 @@
           <view class="step">2</view>
           头部居中，正面正对镜头
         </view>
-        <view style="margin-bottom: 40rpx;" class="list">
+        <view style="margin-bottom: 30rpx;" class="list">
           <view class="step">3</view>
           露出眉毛和耳朵，面部无遮拦
         </view>
-        <view class="button-small" data-name="photo" bindtap="handleUpload" hover-class="button-small-hover">选择照片 + </view>
+        <view class="button-small" data-name="photo" bindtap="handleUploadPhoto" hover-class="button-small-hover">选择照片 + </view>
       </view>
     </view>
   </view>
@@ -31,14 +31,12 @@
   <view class="uploadFormItem">
     <view class="label">身份证</view>
     <view class="body-photo">
-      <view class="card-photo" data-name="identityCardFont" bindtap="handleUpload">
-        <image class="image" src="{{formItem[1][1].defaultValue}}" mode="aspectFit" />
-        <UploadIcon wx:if="{{formItem[1][1].value === ''}}" title="上传人像面" />
+      <view class="card-photo">
+        <UploadImage data="{{formItem[1][1]}}" scale="{{200 / 310}}" name="identityCardFont" title="上传人像面" bind:upload="handleUpload"/>
       </view>
       <view class="center"></view>
-      <view class="card-photo" data-name="identityCardBack" bindtap="handleUpload">
-        <image class="image" src="{{formItem[1][2].defaultValue}}" mode="aspectFit" />
-        <UploadIcon wx:if="{{formItem[1][2].value === ''}}" title="上传国徽面" />
+      <view class="card-photo">
+        <UploadImage data="{{formItem[1][2]}}" scale="{{200 / 310}}" name="identityCardBack" title="上传国徽面" bind:upload="handleUpload" />
       </view>
     </view>
   </view>
@@ -49,13 +47,11 @@
 <view wx:if="{{stepIndex === 2}}">
   <view class="uploadFormItem">
     <view class="label">驾驶证</view>
-    <view class="driver-photo" data-name="driverLicenceFont" bindtap="handleUpload">
-      <image class="image" src="{{formItem[2][0].defaultValue}}" mode="aspectFit" />
-      <UploadIcon wx:if="{{formItem[2][0].value === ''}}" title="上传驾驶证正页" />
+    <view class="driver-photo">
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[2][0]}}" name="driverLicenceFont" title="上传驾驶证正页" bind:upload="handleUpload" />
     </view>
-    <view class="driver-photo" data-name="driverLicenceBack" bindtap="handleUpload">
-      <image class="image" src="{{formItem[2][1].defaultValue}}" mode="aspectFit" />
-      <UploadIcon wx:if="{{formItem[2][1].value === ''}}" title="上传驾驶证副页" />
+    <view class="driver-photo">
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[2][1]}}" name="driverLicenceBack" title="上传驾驶证副页" bind:upload="handleUpload" />
     </view>
   </view>
   <Tips text="上传驾驶证，确保图片清晰，四角完整" />
@@ -65,9 +61,8 @@
 <view wx:if="{{stepIndex === 3}}">
   <view class="uploadFormItem">
     <view class="label">居住证</view>
-    <view class="driver-photo" data-name="residencePermit" bindtap="handleUpload">
-      <image class="image" src="{{formItem[3][0].defaultValue}}" mode="aspectFit" />
-      <UploadIcon wx:if="{{formItem[3][0].value === ''}}" title="上传居住证" />
+    <view class="driver-photo">
+      <UploadImage size="big" scale="{{304 / 612}}" data="{{formItem[3][0]}}" name="residencePermit" title="上传居住证" bind:upload="handleUpload" />
     </view>
   </view>
   <Tips text="上传居住证，确保图片清晰，四角完整" />

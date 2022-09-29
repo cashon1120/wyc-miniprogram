@@ -1,6 +1,5 @@
 import { DriverAccreditation } from '../../../api/index'
 import {checkFormValue, composeForm} from '../../../utils/util'
-import {API_URL} from '../../../config/index'
 
 const app = getApp()
 Page({
@@ -31,6 +30,12 @@ Page({
   onLoad() {
     app.globalData.uploadUrl = 'rentOnlineDriverLicenceApplication/upload'
   },
+
+  handleUploadPhoto(){
+    const uploadComponent = this.selectComponent('#uploadPhoto');
+    uploadComponent.handleUpload()
+  },
+
   handleFormChange(e: any) {
     const index = this.data.stepIndex === 3 ? 4 : this.data.stepIndex
     const key = `formItem[${index}]`
@@ -53,54 +58,17 @@ Page({
   },
 
   handleUpload(e: any){
-    const {name} = e.currentTarget.dataset
+    const {name, value} = e.detail
     const {formItem} = this.data
-    wx.chooseMedia({
-      count: 1,
-      mediaType: ['image'],
-      sourceType: ['album', 'camera'],
-      success: (res: any) => {
-        const {tempFilePath} = res.tempFiles[0]
-        wx.showLoading({title: '上传中...'})
-
-        formItem.forEach((item: any) => {
-          item.forEach((subItem: any, index: number) => {
-            if(subItem.name === name){
-              item[index].defaultValue = tempFilePath
-            }
-          })
-        })
-        this.setData({
-          formItem: [...formItem]
-        })
-        wx.uploadFile({
-          url: `${API_URL}${app.globalData.uploadUrl}`,
-          filePath: tempFilePath,
-          name: 'file',
-          formData: {
-            id: 0
-          },
-          success: (res: any) => {
-            const data = JSON.parse(res.data).data
-            const {code, path} = data
-            if(code === 0){
-              formItem.forEach((item: any) => {
-                item.forEach((subItem: any, index: number) => {
-                  if(subItem.name === name){
-                    item[index].value = path
-                  }
-                })
-              })
-              this.setData({
-                formItem: [...formItem]
-              })
-            }
-          },
-          complete: () => {
-            wx.hideLoading()
-          }
-        })
-      },
+    formItem.forEach((item: any) => {
+      item.forEach((subItem: any, index: number) => {
+        if(subItem.name === name){
+          item[index].value = value
+        }
+      })
+    })
+    this.setData({
+      formItem: [...formItem]
     })
   },
 

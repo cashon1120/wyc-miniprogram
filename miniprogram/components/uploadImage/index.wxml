@@ -1,0 +1,5 @@
+<view bindtap="handleUpload" class="wrapper">
+  <image class="image title" style="height: {{height}}" id="image_{{id}}" src="{{tempUrl}}" mode="aspectFit" />
+  <UploadIcon wx:if="{{data.value === '' && title !== ''}}" title="{{title}}" size="{{size}}" />
+  <view wx:if="{{loading}}" class="progress" style="width: {{progress}};"></view>
+</view>

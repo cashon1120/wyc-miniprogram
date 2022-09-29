@@ -3,7 +3,7 @@
     "FormItem": "/components/formItem",
     "MyImage": "/components/image",
     "MyButton": "/components/button",
-    "UploadIcon": "/components/uploadIcon",
+    "UploadImage": "/components/uploadImage",
     "Tips": "/components/tips",
     "Step": "/components/step"
   },

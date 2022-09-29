@@ -14,7 +14,10 @@
 
 <view wx:else>
   <view class="list">
-    <view class="label">车型</view> {{data.brand}}
+    <view class="label">车辆品牌</view> {{data.brand}}
+  </view>
+  <view class="list">
+    <view class="label">车型</view> {{data.model}}
   </view>
 </view>
 <view class="refused" wx:if="{{data.status === 4}}">

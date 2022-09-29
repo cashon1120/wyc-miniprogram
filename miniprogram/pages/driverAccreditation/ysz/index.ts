@@ -1,6 +1,5 @@
 import { DriverAccreditationTransport } from '../../../api/index'
 import { checkFormValue, composeForm } from '../../../utils/util'
-import { API_URL } from '../../../config/index'
 
 const app = getApp()
 Page({
@@ -10,7 +9,7 @@ Page({
    */
   data: {
     steps: ['填身份信息', '上传身份证', '上传行驶证', '提交车辆信息'],
-    stepIndex: 3,
+    stepIndex: 0,
     formItem: [
       [{ label: '您的姓名', name: 'driverName', value: '', placeholder: '请输入您的姓名', type: 'input', required: { message: '请输入您的姓名' } },
       { label: '您的手机号', name: 'phone', value: '', placeholder: '请输入您的手机号', type: 'input', inputType: 'number', required: { message: '请输入您的手机号' }, validate: { message: '请输入正确的11位手机号', exec: (phone: string) => /^1\d{10}$/.test(phone) } }],
@@ -54,55 +53,18 @@ Page({
     }
   },
 
-  handleUpload(e: any) {
-    const { name } = e.currentTarget.dataset
-    const { formItem } = this.data
-    wx.chooseMedia({
-      count: 1,
-      mediaType: ['image'],
-      sourceType: ['album', 'camera'],
-      success: (res: any) => {
-        const { tempFilePath } = res.tempFiles[0]
-        wx.showLoading({ title: '上传中...' })
-
-        formItem.forEach((item: any) => {
-          item.forEach((subItem: any, index: number) => {
-            if (subItem.name === name) {
-              item[index].defaultValue = tempFilePath
-            }
-          })
-        })
-        this.setData({
-          formItem: [...formItem]
-        })
-        wx.uploadFile({
-          url: `${API_URL}${app.globalData.uploadUrl}`,
-          filePath: tempFilePath,
-          name: 'file',
-          formData: {
-            id: 0
-          },
-          success: (res: any) => {
-            const data = JSON.parse(res.data).data
-            const { code, path } = data
-            if (code === 0) {
-              formItem.forEach((item: any) => {
-                item.forEach((subItem: any, index: number) => {
-                  if (subItem.name === name) {
-                    item[index].value = path
-                  }
-                })
-              })
-              this.setData({
-                formItem: [...formItem]
-              })
-            }
-          },
-          complete: () => {
-            wx.hideLoading()
-          }
-        })
-      },
+  handleUpload(e: any){
+    const {name, value} = e.detail
+    const {formItem} = this.data
+    formItem.forEach((item: any) => {
+      item.forEach((subItem: any, index: number) => {
+        if(subItem.name === name){
+          item[index].value = value
+        }
+      })
+    })
+    this.setData({
+      formItem: [...formItem]
     })
   },
 

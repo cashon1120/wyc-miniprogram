@@ -1,27 +1,39 @@
-<view wx:if="{{showData1}}" class="list" data-item="{{data1}}" hover-class="hover-class" bindtap="handleNavigateToDetail">
-  <view class="content">
-    <view class="title">我的人证</view>
-    <view>{{data1.driverName}} {{data1.phone}}</view>
-    <view>{{data1.createTime}}</view>
+<block wx:if="{{loaded}}">
+  <view wx:if="{{showData1}}" class="list" data-item="{{data1}}" hover-class="hover-class" bindtap="handleNavigateToDetail">
+    <view class="content">
+      <view class="title">我的人证</view>
+      <view>{{data1.driverName}} {{data1.phone}}</view>
+      <view>{{data1.createTime}}</view>
+    </view>
+    <Status status="{{data1.status}}" />
   </view>
-  <Status status="{{data1.status}}" />
-</view>
 
-<view wx:if="{{showData2}}" class="list" data-item="{{data2}}" hover-class="hover-class" bindtap="handleNavigateToDetail">
-  <view class="content">
-    <view class="title">我的车证</view>
-    <view>{{data2.brand}} {{data2.model}}</view>
-    <view>{{data2.createTime}}</view>
+  <view wx:if="{{showData2}}" class="list" data-item="{{data2}}" hover-class="hover-class" bindtap="handleNavigateToDetail">
+    <view class="content">
+      <view class="title">我的车证</view>
+      <view>{{data2.brand}} {{data2.model}}</view>
+      <view>{{data2.createTime}}</view>
+    </view>
+    <Status status="{{data2.status}}" />
   </view>
-  <Status status="{{data2.status}}" />
-</view>
 
-<view class="buttons">
-  <view wx:if="{{!showData1}}" class="button-item" data-url="/pages/driverAccreditation/wyc/index"  bindtap="handleNavigateTo">
-    <view class="icon-wrapper"><image src="/images/men_icon.png"  mode="widthFix"/></view>
-    注册人证
+  <view class="buttons" wx:if="{{!showData1 && !showData2}}">
+    <view class="button-item" data-url="/pages/driverAccreditation/wyc/index" bindtap="handleNavigateTo">
+      <view class="icon-wrapper">
+        <image src="/images/men_icon.png" mode="widthFix" />
+      </view>
+      注册人证
+    </view>
+    <view class="button-item" data-url="/pages/driverAccreditation/ysz/index" bindtap="handleNavigateTo">
+      <view class="icon-wrapper">
+        <image src="/images/car_icon.png" mode="widthFix" />
+      </view>
+      注册车证
+    </view>
   </view>
-  <view wx:if="{{!showData2}}" class="button-item" data-url="/pages/driverAccreditation/ysz/index" bindtap="handleNavigateTo">
-    <view class="icon-wrapper"><image src="/images/car_icon.png"  mode="widthFix"/></view>
-  注册车证</view>
-</view>
+
+  <view class="button-wrapper">
+    <MyButton wx:if="{{!showData1 && showData2}}" title="还未注册人证, 去注册" data-url="/pages/driverAccreditation/wyc/index" bindtap="handleNavigateTo" />
+    <MyButton wx:if="{{!showData2 && showData1}}" title="还未注册车证, 去注册" data-url="/pages/driverAccreditation/ysz/index" bindtap="handleNavigateTo"/>
+  </view>
+</block>
