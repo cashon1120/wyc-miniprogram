@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "FormItem": "/components/formItem",
-    "MyImage": "/components/image",
     "MyButton": "/components/button",
     "UploadImage": "/components/uploadImage",
     "Tips": "/components/tips",
