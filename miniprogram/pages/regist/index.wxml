@@ -1,6 +1,6 @@
 <view class="tips">提示: 长按二维码保存到手机，再用微信扫一扫识别图片</view>
 <view class="wrapper">
-  <view class="item" wx:for="{{images}}" key="name">
+  <view class="item" wx:for="{{images}}" wx:key="name">
     <image src="{{item.src}}" class="image" mode="widthFix" data-url="{{item.src}}" show-menu-by-longpress />
     <view class="name">{{item.name}}</view>
   </view>

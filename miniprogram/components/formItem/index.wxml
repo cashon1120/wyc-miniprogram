@@ -35,6 +35,14 @@
         </view>
       </view>
 
+      <view wx:if="{{item.type === 'textarea'}}" class="{{inline ? 'inline' : null}}">
+        <view class="label"><FormLabel item="{{item}}" /></view>
+        <view class="item">
+          <textarea maxlength="{{item.maxLength || 16}}" type="{{item.inputType || 'text'}}" data-name="{{item.name}}" bindinput="bindFormChange" value="{{item.value}}" placeholder="{{item.placeholder}}" name="{{item.name}}" placeholder-class="placeholder" />
+        </view>
+      </view>
+      
+
       <view wx:if="{{item.type === 'radio'}}">
         <view class="label"><FormLabel item="{{item}}" /></view>
         <view class="item">

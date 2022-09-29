@@ -8,6 +8,7 @@
 <view class="list">
   <view class="label">手机号</view> {{data.phone}}
 </view>
+
 <view wx:if="{{!data.brand}}">
 
 </view>
