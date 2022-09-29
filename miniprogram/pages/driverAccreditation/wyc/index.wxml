@@ -7,8 +7,8 @@
   <view class="uploadFormItem line">
     <view class="label">半身照</view>
     <view class="body-photo">
-      <view style="width: 182rpx; margin-right: 40rpx;">
-        <UploadImage id="uploadPhoto" scale="{{205 / 182}}" data="{{formItem[1][0]}}" name="photo" bind:upload="handleUpload" />
+      <view style="width: 182rpx; margin-right: 40rpx; border: 1px solid #eee;">
+        <UploadImage id="uploadPhoto" scale="{{205 / 178}}" data="{{formItem[1][0]}}" name="photo" bind:upload="handleUpload" />
       </view>
       <view>
         <view class="list">
@@ -23,7 +23,9 @@
           <view class="step">3</view>
           露出眉毛和耳朵，面部无遮拦
         </view>
-        <view class="button-small" data-name="photo" bindtap="handleUploadPhoto" hover-class="button-small-hover">选择照片 + </view>
+        <view class="button-small" data-name="photo" bindtap="handleUploadPhoto" hover-class="button-small-hover">
+          <view>选择照片 <text>+</text> </view>
+        </view>
       </view>
     </view>
   </view>

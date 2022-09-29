@@ -9,12 +9,12 @@ Page({
    */
   data: {
     steps: ['填身份信息','上传身份证','上传驾驶证','上传居住证'],
-    stepIndex: 0,
+    stepIndex: 1,
     formItem: [
       [{ label: '您的姓名', name: 'driverName', value: '', placeholder: '请输入您的姓名', type: 'input', required: { message: '请输入您的姓名' } },
       { label: '您的手机号', maxLength: 11, name: 'phone', value: '', placeholder: '请输入您的手机号', type: 'input', inputType: 'number', required: { message: '请输入您的手机号' }, validate: { message: '请输入正确的11位手机号', exec: (phone: string) => /^1\d{10}$/.test(phone) } },],
 
-      [{ label: '白色背景半身照', name: 'photo', value: '', defaultValue: '/images/avatar.png', type: 'upload', required: { message: '请上传白色背景半身照' } },
+      [{ label: '白色背景半身照', name: 'photo', value: '', defaultValue: '/images/photo.png', type: 'upload', required: { message: '请上传白色背景半身照' } },
       { label: '身份证', inline: true, name: 'identityCardFont', value: '', defaultValue: '/images/idcard_1.png', type: 'upload', uploadText: '上传人像面', required: { message: '请上传身份证人像面' }},
       { label: '', inline: true, name: 'identityCardBack', value: '', defaultValue: '/images/idcard_2.png',type: 'upload', uploadText: '上传副页', required: { message: '请上身份证国徽面' }}],
 
