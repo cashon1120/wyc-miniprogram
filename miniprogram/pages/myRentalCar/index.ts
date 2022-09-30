@@ -1,11 +1,5 @@
 import {GetRentalCarList} from '../../api/index'
 import {formatTime} from '../../utils/util'
-const statusEnum: any = {
-  1: '审核中',
-  2: '已通过',
-  3: '已撤销',
-  4: '不通过',
-}
 
 Page<any, any>({
 
@@ -14,7 +8,7 @@ Page<any, any>({
    */
   data: {
     page: 1,
-    data: [],
+    data: [[]],
     lastDataCount: 0,
     loading: false
   },
@@ -36,14 +30,16 @@ Page<any, any>({
     })
     GetRentalCarList({page: this.data.page, pageSize: 10, rentUserId: wx.getStorageSync('userID')}).then((res: any) => {
       if(res.code !== 0) return
-      const {data: {dataList}, dataCount} = res
+      const {dataList} = res.data
+      const {data, page} = this.data
       for(let i = 0; i < dataList.length; i++){
         dataList[i].createTime = formatTime(new Date(dataList[i].createTime * 1000))
         // dataList[i].status = statusEnum[dataList[i].status]
       }
+      const key = `data[${page - 1}]`
       this.setData({
-        data: [...this.data.data, ...dataList],
-        lastDataCount: dataCount
+        [key]: dataList,
+        lastDataCount: dataList.length
       })
     }).finally(() => {
       this.setData({

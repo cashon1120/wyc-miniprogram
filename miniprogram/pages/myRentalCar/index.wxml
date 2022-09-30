@@ -1,15 +1,11 @@
-<view wx:for="{{data}}" class="list" wx:key="driverRentCarId" hover-class="hover-class">
-  <view class="top">
+<block wx:for="{{data}}" wx:key="index">
+  <view wx:for="{{item}}" wx:for-item="subItem" class="list" wx:key="driverRentCarId" hover-class="hover-class">
+    <view class="title">{{subItem.userName}}</view>
+    <view>电话：{{subItem.phone}}</view>
+    <view>地址：{{subItem.addr}}</view>
+    <view>时间：{{subItem.createTime}}</view>
   </view>
-  <view class="content">
-    <view style="flex: 1;">
-      <view class="title">{{item.userName}}</view>
-      <view>电话：{{item.phone}}</view>
-      <view>地址：{{item.addr}}</view>
-    </view>
-    <Status status="{{item.status}}" />
-  </view>
-  <view class="time">{{item.createTime}}</view>
-</view>
+</block>
+
 
 <view class="dataInfo">{{lastDataCount < 10 ? '已经到底啦~' : '下拉加载理多' }}</view>
