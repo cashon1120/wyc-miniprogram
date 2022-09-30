@@ -164,3 +164,19 @@ export const AddSqOrder = (data: any) => {
   })
 }
 
+export const AddRentalCarOrder = (data: any) => {
+  return request({
+    url: 'rentRentalCar/add',
+    method: 'POST',
+    data
+  })
+}
+
+export const GetRentalCarList = (data: any) => {
+  return request({
+    url: 'rentRentalCar/byUser/page/list',
+    method: 'POST',
+    data
+  })
+}
+

@@ -1,1 +1,47 @@
-/* pages/myRentalCar/index.wxss */
+page {
+  background-color: #F4F4F4;
+  padding-bottom: calc(250rpx + constant(safe-area-inset-bottom));
+  padding-bottom: calc(250rpx + env(safe-area-inset-bottom));
+}
+.list{
+  align-items: center;
+  padding: 10rpx 0;
+  background-color: #fff;
+  border-bottom: 1px solid #F4F4F4;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #777;
+  .title{
+    flex: 1;
+    font-size: 34rpx;
+    color: #333;
+    padding-top: 15rpx;
+  }
+  &.hover-class{
+    background-color: #fafafa;
+  }
+  .time{
+    text-align: right;
+    border-top: 1px solid #fafafa;
+    padding-top: 10rpx;
+    padding-right: 30rpx;
+    font-size: 24rpx;
+    color: #999;
+  }
+
+  .content{
+    padding: 30rpx;
+    padding-top: 15rpx;
+    padding-bottom: 15rpx;
+    line-height: 45rpx;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.dataInfo{
+  text-align: center;
+  font-size: 28rpx;
+  padding-top: 30rpx;
+  opacity: .6;
+}

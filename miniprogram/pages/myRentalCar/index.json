@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+  "Status": "/components/status"
+  },
   "navigationBarTitleText": "租车申请"
 }
