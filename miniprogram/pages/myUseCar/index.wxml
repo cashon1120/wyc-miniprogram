@@ -8,4 +8,5 @@
 </block>
 
 
-<view class="dataInfo">{{lastDataCount < 10 ? '已经到底啦~' : '下拉加载理多' }}</view>
+<view class="dataInfo" wx:if="{{data[0].length === 0}}">暂无数据</view>
+<view class="dataInfo" wx:else>{{lastDataCount < 10 ? '~已经到底啦~' : '下拉加载更多' }}</view>
