@@ -25,8 +25,8 @@ App<IAppOption>({
           GetUserInfo(response.code).then((res: any) => {
             if(res.code === 0){
               wx.setStorage({
-                key: 'userID',
-                data: res.data.rentUserId
+                key: 'token',
+                data: res.data.token
               })
             }
           })

@@ -38,7 +38,6 @@ Page<any, any>({
   handleFormChange(e: any) {
     const {name, value} = e.detail
     this.data.formItem[name].value = value
-    console.log(this.data.formItem)
     this.setData({
       formItem: {...this.data.formItem}
     })

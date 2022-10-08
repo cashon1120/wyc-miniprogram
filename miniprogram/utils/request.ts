@@ -11,7 +11,7 @@ import {
 import encryption from './encryption'
 
 const request = function (params: any) {
-    const token = wx.getStorageSync('userInfo').token || '12345'
+    const token = wx.getStorageSync('token') || ''
     wx.hideLoading()
     let {
         url,
@@ -37,6 +37,7 @@ const request = function (params: any) {
             url: `${api}${url}`,
             method,
             header: {
+                rentUserToken: token,
                 "authorization": token,
                 ...header
             },
