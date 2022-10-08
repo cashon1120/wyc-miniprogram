@@ -1,14 +1,12 @@
 <Step steps="{{steps}}" stepIndex="{{stepIndex}}" />
 
 <!--第一步-->
-<FormItem wx:if="{{stepIndex === 0}}" formItem="{{formItem[stepIndex]}}" bind:submit="handleSubmit" bind:change="handleFormChange" disableButton="{{true}}" />
-<!--第二步-->
-<view wx:if="{{stepIndex === 1}}">
+<view wx:if="{{stepIndex === 0}}">
   <view class="uploadFormItem line">
     <view class="label">半身照</view>
     <view class="body-photo">
       <view style="width: 182rpx; margin-right: 40rpx; border: 1px solid #eee;">
-        <UploadImage id="uploadPhoto" scale="{{205 / 178}}" data="{{formItem[1][0]}}" name="photo" bind:upload="handleUpload" />
+        <UploadImage id="uploadPhoto" scale="{{205 / 178}}" data="{{formItem.photo}}" name="photo" bind:upload="handleUpload" />
       </view>
       <view>
         <view class="list">
@@ -34,44 +32,52 @@
     <view class="label">身份证</view>
     <view class="body-photo">
       <view class="card-photo">
-        <UploadImage data="{{formItem[1][1]}}" scale="{{200 / 310}}" name="identityCardFont" title="上传人像面" bind:upload="handleUpload"/>
+        <UploadImage data="{{formItem.identityCardFont}}" scale="{{200 / 310}}" name="identityCardFont" title="上传人像面" bind:upload="handleUpload" />
       </view>
       <view class="center"></view>
       <view class="card-photo">
-        <UploadImage data="{{formItem[1][2]}}" scale="{{200 / 310}}" name="identityCardBack" title="上传国徽面" bind:upload="handleUpload" />
+        <UploadImage data="{{formItem.identityCardBack}}" scale="{{200 / 310}}" name="identityCardBack" title="上传国徽面" bind:upload="handleUpload" />
       </view>
     </view>
   </view>
   <Tips text="上传身份证，确保图片清晰，四角完整" />
+  <view style="height: 40rpx;"></view>
+  <FormInput item="{{formItem.driverName}}" bind:change="handleFormChange" />
+  <FormInput item="{{formItem.idCard}}" bind:change="handleFormChange" />
+  <FormInput item="{{formItem.phone}}" bind:change="handleFormChange" />
 </view>
 
-<!--第三步-->
-<view wx:if="{{stepIndex === 2}}">
+<!--第二步-->
+<view wx:if="{{stepIndex === 1}}">
   <view class="uploadFormItem">
     <view class="label">驾驶证</view>
     <view class="driver-photo">
-      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[2][0]}}" name="driverLicenceFont" title="上传驾驶证正页" bind:upload="handleUpload" />
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem.driverLicenceFont}}" name="driverLicenceFont" title="上传驾驶证正页" bind:upload="handleUpload" />
     </view>
     <view class="driver-photo">
-      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[2][1]}}" name="driverLicenceBack" title="上传驾驶证副页" bind:upload="handleUpload" />
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem.driverLicenceBack}}" name="driverLicenceBack" title="上传驾驶证副页" bind:upload="handleUpload" />
     </view>
   </view>
   <Tips text="上传驾驶证，确保图片清晰，四角完整" />
 </view>
 
-<!--第四步-->
-<view wx:if="{{stepIndex === 3}}">
+<!--第三步-->
+<view wx:if="{{stepIndex === 2}}">
   <view class="uploadFormItem">
     <view class="label">居住证</view>
     <view class="driver-photo">
-      <UploadImage size="big" scale="{{304 / 612}}" data="{{formItem[3][0]}}" name="residencePermit" title="上传居住证" bind:upload="handleUpload" />
+      <UploadImage size="big" scale="{{304 / 612}}" data="{{formItem.residencePermit}}" name="residencePermit" title="上传居住证" bind:upload="handleUpload" />
     </view>
   </view>
   <Tips text="上传居住证，确保图片清晰，四角完整" />
   <view class="line" style="margin-top: 40rpx;"></view>
-  <FormItem formItem="{{formItem[4]}}" bind:submit="handleSubmit" bind:change="handleFormChange" disableButton="{{true}}" />
+  <view style="padding-left: 40rpx;">
+    <FormLabel item="{{formItem.otherCertificateList}}" disableShowRequire="{{true}}" />
+    <Upload name="otherCertificateList" value="{{formItem.otherCertificateList.value}}" bind:change="bindUploadChange" count="{{formItem.otherCertificateList.count || 1}}" />
+  </view>
+
 </view>
 
 <view class="step-button-wrapper">
-  <MyButton title="{{stepIndex <=2 ? '下一步' : '提交'}}" bind:click="handleNext" />
+  <MyButton title="{{stepIndex <= 1 ? '下一步' : '提交'}}" bind:click="handleNext" />
 </view>

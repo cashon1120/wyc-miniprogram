@@ -1,5 +1,9 @@
 import { API_URL } from '../../config/index'
 const app = getApp()
+
+const idCardUploadUrl = 'baidu/uploadRecognition/idCard'
+const drivingLicenceUrl = 'baidu/uploadRecognition/drivingLicence'
+
 Component({
   properties: {
     data: Object,
@@ -49,18 +53,50 @@ Component({
             loading: true,
             tempUrl: tempFilePath
           })
+          let url = app.globalData.uploadUrl
+          const {uploadType} = this.data.data
+          let formData: any = {
+            id: 0
+          }
+          let uploadName = ''
+          if(uploadType){
+            formData = {
+              isFont: 1
+            }
+            if(uploadType === 'idCard'){
+              uploadName = '身份证'
+              url = idCardUploadUrl
+            }
+            if(uploadType === 'drivingLicence'){
+              uploadName = '行驶证'
+              url = drivingLicenceUrl
+            }
+          }
           const uploadTask = wx.uploadFile({
-            url: `${API_URL}${app.globalData.uploadUrl}`,
+            url: `${API_URL}${url}`,
             filePath: tempFilePath,
             name: 'file',
-            formData: {
-              id: 0
-            },
+            formData,
             success: (res: any) => {
-              const { code, path } = JSON.parse(res.data).data
+              const { code, path, data } = JSON.parse(res.data).data
               const { name } = this.data
               if (code === 0) {
-                this.triggerEvent('upload', { name, value: path })
+                if(uploadType){
+                  if(!data){
+                    wx.showToast({
+                      title: `${uploadName}识别失败，请重新上传`,
+                      icon: 'none'
+                    })
+                  }else{
+                    if(uploadType === 'idCard'){
+                      this.triggerEvent('upload', { name, value: path, userName:decodeURI(data.name), idCard: data.idCard })
+                    }else{
+                      this.triggerEvent('upload', { name, value: path, plateNumber:decodeURI(data.plateNumber)})
+                    }
+                  }
+                }else{
+                  this.triggerEvent('upload', { name, value: path})
+                }
               }
             },
             fail: () => {

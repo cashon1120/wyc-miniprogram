@@ -26,11 +26,17 @@ export const checkUserPhone = () => {
   }
 }
 
-export const checkFormValue = (form: any) => {
+export const checkFormValue = (form: any, index: number) => {
   let error = false
   let value: any = {}
-  for (let i = 0; i < form.length; i++) {
-    const item = form[i]
+  const items: any = []
+  Object.keys(form).forEach((key: any) => {
+    if(form[key].step === index){
+      items.push(form[key])
+    }
+  })
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i]
     if (item.required && (item.value === '' || item.value.length === 0)) {
       wx.showToast({
         title: item.required.message,
@@ -59,10 +65,10 @@ export const checkFormValue = (form: any) => {
   return value
 }
 
-export const composeForm = (formData: any[]) => {
-  let result: any = []
-  formData.forEach((item: any) => {
-    result = [...result, ...item]
+export const composeForm = (formData: any) => {
+  let result: any = {}
+  Object.keys(formData).forEach((key: string) => {
+    result[key] = formData[key].value
   })
   return result
 }

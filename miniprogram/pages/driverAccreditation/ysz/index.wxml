@@ -1,58 +1,61 @@
 <Step steps="{{steps}}" stepIndex="{{stepIndex}}" />
 
 <!--第一步-->
-<FormItem wx:if="{{stepIndex === 0}}" formItem="{{formItem[stepIndex]}}" bind:submit="handleSubmit" bind:change="handleFormChange" disableButton="{{true}}" />
-
-<!--第二步-->
-<block wx:if="{{stepIndex === 1}}">
+<block wx:if="{{stepIndex === 0}}">
   <view class="uploadFormItem">
     <view class="label">身份证</view>
     <view class="body-photo">
       <view class="card-photo">
-        <UploadImage data="{{formItem[1][0]}}" scale="{{200 / 310}}" name="identityCardFont" title="上传人像面" bind:upload="handleUpload" />
+        <UploadImage data="{{formItem.identityCardFont}}" scale="{{200 / 310}}" name="identityCardFont" title="上传人像面" bind:upload="handleUpload" />
       </view>
       <view class="center"></view>
-      <view class="card-photo" data-name="identityCardBack" bindtap="handleUpload">
-        <UploadImage data="{{formItem[1][1]}}" scale="{{200 / 310}}" name="identityCardBack" title="上传国徽面" bind:upload="handleUpload" />
+      <view class="card-photo">
+        <UploadImage data="{{formItem.identityCardBack}}" scale="{{200 / 310}}" name="identityCardBack" title="上传国徽面" bind:upload="handleUpload" />
       </view>
     </view>
   </view>
   <Tips text="上传身份证，确保图片清晰，四角完整" />
+  <view style="height: 40rpx;"></view>
+  <FormInput item="{{formItem.driverName}}" bind:change="handleFormChange" />
+  <FormInput item="{{formItem.idCard}}" bind:change="handleFormChange" />
+  <FormInput item="{{formItem.phone}}" bind:change="handleFormChange" />
 </block>
 
 <!--第三步-->
-<block wx:if="{{stepIndex === 2}}">
+<block wx:if="{{stepIndex === 1}}">
   <view class="uploadFormItem">
     <view class="label">行驶证</view>
     <view class="driver-photo">
-      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[2][0]}}" name="drivingLicenceFont" title="上传行驶证正页" bind:upload="handleUpload" />
+      <UploadImage size="big" data="{{formItem.drivingLicenceFont}}" scale="{{294 / 612}}" name="drivingLicenceFont" title="上传行驶证正页" bind:upload="handleUpload" />
     </view>
     <view class="driver-photo">
-      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[2][1]}}" name="drivingLicenceBack" title="上传行驶证副页" bind:upload="handleUpload" />
+      <UploadImage size="big" data="{{formItem.drivingLicenceBack}}" scale="{{294 / 612}}" name="drivingLicenceBack" title="上传行驶证副页" bind:upload="handleUpload" />
     </view>
   </view>
   <Tips text="上传驾驶证，确保图片清晰，四角完整" />
+  <FormInput item="{{formItem.plateNumber}}" bind:change="handleFormChange" />
+
 </block>
 
 <!--第四步-->
-<block wx:if="{{stepIndex === 3}}">
+<block wx:if="{{stepIndex === 2}}">
   <view class="uploadFormItem line">
     <view class="label">登记证书</view>
     <view class="driver-photo">
-      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[3][0]}}" name="registrationCertificateUrl" title="上传登记证书" bind:upload="handleUpload" />
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem.registrationCertificateUrl}}" name="registrationCertificateUrl" title="上传登记证书" bind:upload="handleUpload" />
     </view>
   </view>
 
   <view class="uploadFormItem">
     <view class="label">车辆正面45度角</view>
     <view class="driver-photo" data-name="vehicleUrl" bindtap="handleUpload">
-      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem[3][1]}}" name="vehicleUrl" title="上传车辆照片" bind:upload="handleUpload" />
+      <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem.vehicleUrl}}" name="vehicleUrl" title="上传车辆照片" bind:upload="handleUpload" />
     </view>
   </view>
-
-  <FormItem inline formItem="{{formItem[4]}}" bind:submit="handleSubmit" bind:change="handleFormChange" disableButton="{{true}}" />
+  <FormInput item="{{formItem.brand}}" bind:change="handleFormChange" />
+  <FormInput item="{{formItem.model}}" bind:change="handleFormChange" />
 </block>
 
 <view class="step-button-wrapper">
-  <MyButton title="{{stepIndex <=2 ? '下一步' : '提交'}}" bind:click="handleNext" />
+  <MyButton title="{{stepIndex <=1 ? '下一步' : '提交'}}" bind:click="handleNext" />
 </view>

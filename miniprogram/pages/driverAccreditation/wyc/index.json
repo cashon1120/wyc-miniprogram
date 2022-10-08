@@ -3,6 +3,9 @@
     "FormItem": "/components/formItem",
     "MyButton": "/components/button",
     "UploadImage": "/components/uploadImage",
+    "FormInput": "/components/formInput",
+    "Upload": "/components/upload",
+    "FormLabel": "/components/formLabel",
     "Tips": "/components/tips",
     "Step": "/components/step"
   },

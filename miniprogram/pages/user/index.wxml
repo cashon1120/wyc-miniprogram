@@ -7,8 +7,8 @@
   </view>
 </view>
 
-<listItem label="驾驶员注册" url="/pages/driverAccreditation/default/index" />
-<listItem label="我的推荐" url="/pages/myRecommend/index" />
-<listItem label="租车申请" url="/pages/myRentalCar/index" />
-<listItem label="用车申请" url="/pages/myUseCar/index" />
-<listItem label="服务热线: 4008-460-999" bind:click="handleCall" />
+<listItem icon="/images/user_1.png" label="驾驶员注册" url="/pages/driverAccreditation/default/index" />
+<listItem icon="/images/user_2.png" label="我的推荐" url="/pages/myRecommend/index" />
+<listItem icon="/images/user_3.png" label="租车申请" url="/pages/myRentalCar/index" />
+<listItem icon="/images/user_4.png" label="用车申请" url="/pages/myUseCar/index" />
+<listItem icon="/images/user_5.png" label="服务热线: 4008-460-999" bind:click="handleCall" />

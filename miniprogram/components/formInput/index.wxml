@@ -1,0 +1,4 @@
+<view class="wrapper">
+  <FormLabel item="{{item}}" />
+  <input maxlength="{{item.maxLength || 16}}" type="{{item.inputType || 'text'}}" data-name="{{item.name}}" bindinput="bindFormChange" value="{{item.value}}" placeholder="{{item.placeholder}}" name="{{item.name}}" placeholder-class="placeholder" />
+</view>

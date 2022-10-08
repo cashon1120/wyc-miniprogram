@@ -1,0 +1,3 @@
+<view class="list">
+  <view class="label">{{label}}</view> {{info}}
+</view>
