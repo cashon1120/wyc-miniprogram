@@ -31,7 +31,7 @@ Page<any, any>({
     GetRentalCarList({page: this.data.page, pageSize: 10, rentUserId: wx.getStorageSync('userID')}).then((res: any) => {
       if(res.code !== 0) return
       const {dataList} = res.data
-      const {data, page} = this.data
+      const {page} = this.data
       for(let i = 0; i < dataList.length; i++){
         dataList[i].createTime = formatTime(new Date(dataList[i].createTime * 1000))
         // dataList[i].status = statusEnum[dataList[i].status]

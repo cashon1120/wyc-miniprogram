@@ -180,3 +180,12 @@ export const GetRentalCarList = (data: any) => {
   })
 }
 
+export const GetMeetingUseCar= (data: any) => {
+  return request({
+    url: 'meetingUseCar/byUser/page/list',
+    method: 'POST',
+    data
+  })
+}
+
+

@@ -1,5 +1,5 @@
 <block wx:for="{{data}}" wx:key="index">
-  <view wx:for="{{item}}" wx:for-item="subItem" class="list" wx:key="driverRentCarId" hover-class="hover-class">
+  <view wx:for="{{item}}" wx:for-item="subItem" class="page-list" wx:key="driverRentCarId" hover-class="hover-class">
     <view class="title">{{subItem.userName}}</view>
     <view>电话：{{subItem.phone}}</view>
     <view>地址：{{subItem.addr}}</view>

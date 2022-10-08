@@ -1,1 +1,11 @@
-<text style="display: block; text-align: center; padding-top: 50rpx; opacity: .5;">页面建设中</text>
+<block wx:for="{{data}}" wx:key="index">
+  <view wx:for="{{item}}" wx:for-item="subItem" class="page-list" wx:key="driverRentCarId" hover-class="hover-class">
+    <view class="title">{{subItem.userName}}</view>
+    <view>电话：{{subItem.phone}}</view>
+    <view>数量：{{subItem.vehicleCount}}</view>
+    <view>时间：{{subItem.beginTime}} 至 {{subItem.endTime}}</view>
+  </view>
+</block>
+
+
+<view class="dataInfo">{{lastDataCount < 10 ? '已经到底啦~' : '下拉加载理多' }}</view>

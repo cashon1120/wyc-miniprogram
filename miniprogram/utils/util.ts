@@ -1,16 +1,22 @@
-export const formatTime = (date: Date) => {
+export const formatTime = (date: Date, format?: String) => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
   const hour = date.getHours()
   const minute = date.getMinutes()
   const second = date.getSeconds()
-
-  return (
-    [year, month, day].map(formatNumber).join('-') +
-    ' ' +
-    [hour, minute, second].map(formatNumber).join(':')
-  )
+  const YMD = [year, month, day].map(formatNumber).join('-')
+  const HMS = [hour, minute, second].map(formatNumber).join(':')
+  const HM = [hour, minute].map(formatNumber).join(':')
+  if(!format){
+    return ( YMD + ' ' + HMS)
+  }
+  if(format === 'YYYY-MM-DD hh:mm'){
+    return ( YMD + ' ' + HM)
+  }
+  if(format === 'YYYY-MM-DD'){
+    return YMD
+  }
 }
 
 const formatNumber = (n: number) => {

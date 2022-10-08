@@ -18,8 +18,8 @@ App<IAppOption>({
       }
   },
   onLaunch() {
-    const userID = wx.getStorageSync('userID')
-    if(!userID){
+    const token = wx.getStorageSync('token')
+    if(!token){
       wx.login({
         success: (response: any) => {
           GetUserInfo(response.code).then((res: any) => {
