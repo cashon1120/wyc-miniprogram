@@ -48,7 +48,7 @@
 
   <view class="uploadFormItem">
     <view class="label">车辆正面45度角</view>
-    <view class="driver-photo" data-name="vehicleUrl" bindtap="handleUpload">
+    <view class="driver-photo">
       <UploadImage size="big" scale="{{294 / 612}}" data="{{formItem.vehicleUrl}}" name="vehicleUrl" title="上传车辆照片" bind:upload="handleUpload" />
     </view>
   </view>

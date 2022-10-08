@@ -1,6 +1,6 @@
 <view class="banner-wrapper">
-  <image wx:if="{{!data.brand}}" src="{{data.identityCardFont}}" mode="widthFix" class="banner" />
-  <image wx:else src="{{data.drivingLicenceFont}}" mode="widthFix" class="banner" />
+  <image wx:if="{{!data.brand}}" src="{{data.identityCardFont}}" mode="aspectFit" class="banner" />
+  <image wx:else src="{{data.drivingLicenceFont}}" mode="aspectFit" class="banner" />
 </view>
 
 <InfoItem label="驾驶员" info="{{data.driverName}}" />

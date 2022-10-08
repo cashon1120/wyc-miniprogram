@@ -56,6 +56,7 @@ Page<any, any>({
 
   handleUpload(e: any) {
     const {name, value, plateNumber, userName, idCard} = e.detail
+    console.log('name', name)
     if(plateNumber){
       this.data.formItem['plateNumber'].value = plateNumber
     }
