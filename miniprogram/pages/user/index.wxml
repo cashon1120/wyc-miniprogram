@@ -1,9 +1,9 @@
-<view class="userInfo">
+<view class="userInfo" bindtap="handleSetUserInfo">
   <view class="avatar">
-    <image class="avatar" src="{{userInfo.avatarUrl}}" />
+    <image class="avatar-image" src="{{userInfo.avatarUrl}}" />
   </view>
-  <view class="userName" bindtap="handleGetUserInfo">
-    <text>{{userInfo.nickName || '获取用户信息'}}</text>
+  <view class="userName">
+    <text>{{userInfo.nickName || '设置用户信息'}}</text>
   </view>
 </view>
 

@@ -1,0 +1,18 @@
+<form bindsubmit="handleSubmit">
+  <view class="info">请设置您的头像和昵称</view>
+  <view class="avatar">
+    <button open-type="chooseAvatar" bindchooseavatar="handleChooseAvatar">
+      <image src="{{avatarUrl}}" mode="widthFix" />
+    </button>
+    <input value="{{realAvatarUrl}}" style="display: none;" name="avatarUrl" />
+  </view>
+  <view class="list">
+    <view class="label">昵称</view>
+    <view class="content">
+      <input name="nickName" value="{{nickName}}" type="nickname" placeholder="请输入昵称" />
+    </view>
+  </view>
+  <view class="button-wrapper">
+    <MyButton title="确认" form-type="submit" />
+  </view>
+</form>

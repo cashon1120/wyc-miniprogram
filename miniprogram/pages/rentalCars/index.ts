@@ -1,4 +1,6 @@
 import { AddRentalCarOrder } from '../../api/index'
+import {getUserInfo} from '../../utils/util'
+
 Page({
 
   /**
@@ -18,6 +20,19 @@ Page({
     ]
   },
 
+  onShow(){
+    getUserInfo()
+  },
+
+  handleGetUserInfo(){
+    wx.setNavigationBarTitle({
+      title: '租车'
+    })
+    this.setData({
+      showGetUserInfo: false
+    })
+  },
+
   handleFormChange(e: any) {
     this.setData({
       formItem: e.detail
@@ -27,7 +42,7 @@ Page({
     this.setData({
       loading: true
     })
-    AddRentalCarOrder({ ...e.detail, rentUserId: wx.getStorageSync('userID') }).then((res: any) => {
+    AddRentalCarOrder(e.detail).then((res: any) => {
       if (res.code === 0) {
         switch (res.data.code) {
           case 0:

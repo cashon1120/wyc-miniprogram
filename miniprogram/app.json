@@ -20,6 +20,7 @@
     "pages/meeting/user/index",
     "pages/sqpay/index",
     "pages/sucess/index",
+    "pages/getUserInfo/index",
     "pages/driverAccreditation/detail/index"
   ],
   "requiredPrivateInfos": [

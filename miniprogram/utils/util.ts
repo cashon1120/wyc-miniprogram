@@ -32,6 +32,30 @@ export const checkUserPhone = () => {
   }
 }
 
+export const getUserInfo = (jump?: boolean) => {
+  try {
+    if(jump){
+      wx.navigateTo({
+        url: '/pages/getUserInfo/index'
+      })
+      return
+    }
+    const userInfo = wx.getStorageSync('userInfo')
+    if(userInfo){
+      return userInfo
+    }
+    var pages = getCurrentPages(); 
+    var currentPage = pages[pages.length - 1]; 
+    const app = getApp()
+    app.globalData.tempUrl = currentPage.route
+    wx.redirectTo({
+      url: '/pages/getUserInfo/index'
+    })
+  } catch (e: any) {
+    console.log('获取失败')
+  }
+}
+
 export const checkFormValue = (form: any, index: number) => {
   let error = false
   let value: any = {}

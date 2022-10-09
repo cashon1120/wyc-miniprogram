@@ -188,4 +188,13 @@ export const GetMeetingUseCar= (data: any) => {
   })
 }
 
+export const UpdateUserInfo= (data: any) => {
+  return request({
+    url: 'rentUser/update',
+    method: 'POST',
+    data
+  })
+}
+
+
 

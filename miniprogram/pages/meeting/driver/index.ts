@@ -1,5 +1,4 @@
 import { MeetingDriverAdd } from '../../../api/index'
-import { formatTime} from '../../../utils/util'
 const app = getApp()
 Page({
 
@@ -18,6 +17,7 @@ Page({
     ],
     loading: false
   },
+
   onLoad() {
     app.globalData.uploadUrl = 'rentOnlineDriverLicenceApplication/upload'
   },

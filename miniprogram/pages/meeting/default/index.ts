@@ -1,3 +1,6 @@
+import {getUserInfo} from '../../../utils/util'
 Page({
-  data: {},
+  onShow(){
+    getUserInfo()
+  },
 })
