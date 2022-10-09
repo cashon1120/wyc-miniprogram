@@ -7,7 +7,7 @@ Page({
    */
   data: {
     formItem: [
-      { label: '司机姓名', name: 'driverName', value: '', placeholder: '请输入姓名或公司名称', type: 'input', required: { message: '请输入姓名或公司名称' } },
+      { label: '司机姓名', name: 'driverName', value: '', placeholder: '请输入姓名或公司名称', type: 'input', required: { message: '请输入司机姓名' } },
       { label: '手机号', maxLength: 11, name: 'phone', value: '', placeholder: '请输入手机号', type: 'input', inputType: 'number', required: { message: '请输入手机号' }, validate: { message: '请输入正确的11位手机号', exec: (phone: string) => /^1\d{10}$/.test(phone) } },
       { label: '车型',  name: 'vehicleModel', value: '', type: 'input', required: { message: '请输入车型' }, placeholder: '请输入车型', },
       { label: '车辆颜色',  name: 'vehicleColor', value: '', type: 'input', required: { message: '请输入车辆颜色' } ,placeholder: '请输入车辆颜色',},

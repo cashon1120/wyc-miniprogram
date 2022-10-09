@@ -33,7 +33,11 @@ Component({
             title: item.required.message,
             icon: 'none'
           })
+          formItem[i].error = true
           error = true
+          this.setData({
+            formItem: [...formItem]
+          })
           break
         }
         if(item.validate){
@@ -44,6 +48,10 @@ Component({
                 icon: 'none'
               })
               error = true
+              item.error = true
+              this.setData({
+                formItem: [...formItem]
+              })
               break
             }
           }
@@ -64,6 +72,7 @@ Component({
       this.data.formItem.forEach((item: any) => {
         if (item.name === name) {
           item.value = value
+          item.error = false
         }
       })
       this.triggerEvent('change', [...this.data.formItem])

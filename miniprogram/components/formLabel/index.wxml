@@ -1,1 +1,1 @@
-<view class="label"><text class="required" wx:if="{{item.required && item.label && !disableShowRequire}}">*</text>{{item.label}}</view>
+<view class="label {{item.error ? 'error' : null}}"><text class="required" wx:if="{{item.required && item.label && !disableShowRequire}}">*</text>{{item.label}}</view>
