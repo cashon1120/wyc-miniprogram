@@ -1,1 +1,1 @@
-<FormItem formItem="{{formItem}}" bind:submit="handleSubmit" bind:change="handleFormChange" />
+<FormItem formItem="{{formItem}}" bind:submit="handleSubmit" bind:change="handleFormChange" loading="{{loading}}" />

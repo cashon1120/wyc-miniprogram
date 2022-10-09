@@ -75,7 +75,7 @@
   </view>
   <view class="form-submit-container form-submit-bottom"><view class="button">提交</view></view>
   <cover-view class="form-submit-container">
-    <cover-view class="button" hover-class="button-hover" bindtap="submit">
+    <cover-view class="button {{loading ? 'loading' : null}}" hover-class="button-hover" bindtap="submit">
       {{loading ? '加载中,请稍后...' : '提交'}}</cover-view>
   </cover-view>
 </form>
