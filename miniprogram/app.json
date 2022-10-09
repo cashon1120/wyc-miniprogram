@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/taxi/index",
-    "pages/education/index",
     "pages/charge/index",
     "pages/webView/index",
     "pages/user/index",
