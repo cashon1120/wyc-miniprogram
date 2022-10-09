@@ -1,1 +1,0 @@
-export const ageArray = [{ id: 1, name: '3年以下' }, { id: 2, name: '3-5年' }, { id: 3, name: '5-10年' }, { id: 4, name: '10-15年' }, { id: 5, name: '15年以上' }]
