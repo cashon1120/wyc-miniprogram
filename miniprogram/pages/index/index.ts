@@ -39,33 +39,6 @@ Page({
 
   handleNavigate(e: any) {
     const { url } = e.currentTarget.dataset
-    // const info = {
-    //   "orderNo": "B220929095446907000",
-    //   "source": 1,
-    //   "bookingDate": "2022-09-29 12:00:00",
-    //   "amount": 49.99,
-    //   "riderPhone": "18015704236",
-    //   "riderName": "陈小龙",
-    //   "driverName": "司机1",
-    //   "driverPhone": "18015704235",
-    //   "plateNumber": "川A123",
-    //   "city": "成都",
-    //   "startAddr": "天府广场",
-    //   "startLng": 104.074378,
-    //   "startLat": 30.686158,
-    //   "endAddr": "天府三街",
-    //   "endLng": 104.092775,
-    //   "endLat": 30.518057,
-    //   "payInfo": "5",
-    //   "returnUrl": "6"
-    // }
-    // if (url === 'sqpay') {
-    //   wx.navigateTo({
-    //     url: `/pages/${url}/index?info=${JSON.stringify(info)}`,
-    //   })
-    //   return
-    // }
-
     if (!url) {
       wx.showToast({
         title: '该功能尚未开放',
@@ -73,7 +46,6 @@ Page({
       })
       return
     }
-
     wx.navigateTo({
       url: `/pages/${url}/index`,
     })

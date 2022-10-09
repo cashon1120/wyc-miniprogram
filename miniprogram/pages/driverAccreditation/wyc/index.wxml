@@ -75,7 +75,6 @@
     <FormLabel item="{{formItem.otherCertificateList}}" disableShowRequire="{{true}}" />
     <Upload name="otherCertificateList" value="{{formItem.otherCertificateList.value}}" bind:change="bindUploadChange" count="{{formItem.otherCertificateList.count || 1}}" />
   </view>
-
 </view>
 
 <view class="step-button-wrapper">
