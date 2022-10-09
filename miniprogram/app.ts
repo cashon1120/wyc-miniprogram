@@ -10,30 +10,27 @@ App<IAppOption>({
       }
   },
   onLaunch() {
-    const token = wx.getStorageSync('token')
-    if(!token){
-      wx.login({
-        success: (response: any) => {
-          GetUserInfo(response.code).then((res: any) => {
-            const {nickName, avatarUrl, token} = res.data
-            if(res.code === 0){
-              if(nickName){
-                wx.setStorage({
-                  key: 'userInfo',
-                  data: {
-                    nickName,
-                    avatarUrl: `${API_URL}rentUser/down?path=/${avatarUrl}`
-                  }
-                })
-              }
+    wx.login({
+      success: (response: any) => {
+        GetUserInfo(response.code).then((res: any) => {
+          const {nickName, avatarUrl, token} = res.data
+          if(res.code === 0){
+            if(nickName){
               wx.setStorage({
-                key: 'token',
-                data: token
+                key: 'userInfo',
+                data: {
+                  nickName,
+                  avatarUrl: `${API_URL}rentUser/down?path=/${avatarUrl}`
+                }
               })
             }
-          })
-        }
-      })
-    }
+            wx.setStorage({
+              key: 'token',
+              data: token
+            })
+          }
+        })
+      }
+    })
   },
 })

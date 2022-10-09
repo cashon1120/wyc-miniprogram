@@ -22,7 +22,8 @@ Component({
    */
   methods: {
     submit() {
-      const { formItem } = this.data
+      const { formItem, loading } = this.data
+      if(loading) return
       let error = false
       let value: any = {}
       for (let i = 0; i < formItem.length; i++) {

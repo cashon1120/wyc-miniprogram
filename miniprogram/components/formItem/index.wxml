@@ -1,10 +1,12 @@
-<view class="formWrapper {{inline ? 'inline-formWrapper' : null}}">
-  <form bindsubmit="submit">
+<form bindsubmit="submit">
+  <view class="form-item-wrapper {{inline ? 'inline-formWrapper' : null}}">
     <view class="form-item {{inline ? 'inline-form-item' : null}}" wx:for="{{formItem}}" wx:key="label" style="width: {{!!item.inline ? '48%' : '100%'}}; display: inline-block;">
       <view wx:if="{{item.type === 'picker'}}">
-        <view class="label"><FormLabel item="{{item}}" /></view>
+        <view class="label">
+          <FormLabel item="{{item}}" />
+        </view>
         <view class="item">
-        
+
           <DateTimePicker start="{{item.start}}" data-name="{{item.name}}" wx:if="{{item.mode === 'date'}}" bindchange="bindDateChange">
             <view wx:if="{{item.value}}" class="picker">
               {{item.value}}
@@ -29,22 +31,27 @@
       </view>
 
       <view wx:if="{{item.type === 'input'}}" class="{{inline ? 'inline' : null}}">
-        <view class="label"><FormLabel item="{{item}}" /></view>
+        <view class="label">
+          <FormLabel item="{{item}}" />
+        </view>
         <view class="item">
           <input maxlength="{{item.maxLength || 16}}" type="{{item.inputType || 'text'}}" data-name="{{item.name}}" bindinput="bindFormChange" value="{{item.value}}" placeholder="{{item.placeholder}}" name="{{item.name}}" placeholder-class="input-placeholder" />
         </view>
       </view>
 
       <view wx:if="{{item.type === 'textarea'}}" class="{{inline ? 'inline' : null}}">
-        <view class="label"><FormLabel item="{{item}}" /></view>
+        <view class="label">
+          <FormLabel item="{{item}}" />
+        </view>
         <view class="item">
-          <textarea maxlength="{{item.maxLength || 16}}" type="{{item.inputType || 'text'}}" data-name="{{item.name}}" bindinput="bindFormChange" value="{{item.value}}" placeholder="{{item.placeholder}}" name="{{item.name}}" placeholder-class="placeholder" />
+          <textarea style="height: 180rpx;" maxlength="{{item.maxLength || 200}}" type="{{item.inputType || 'text'}}" data-name="{{item.name}}" bindinput="bindFormChange" value="{{item.value}}" placeholder="{{item.placeholder}}" name="{{item.name}}" placeholder-class="placeholder" />
         </view>
       </view>
-      
 
       <view wx:if="{{item.type === 'radio'}}">
-        <view class="label"><FormLabel item="{{item}}" /></view>
+        <view class="label">
+          <FormLabel item="{{item}}" />
+        </view>
         <view class="item">
           <radio-group bindchange="bindFormChange" name="{{item.name}}" data-name="{{item.name}}">
             <label class="radio" wx:for="{{item.data}}" wx:for-item="items" wx:key="value">
@@ -55,7 +62,9 @@
       </view>
 
       <view wx:if="{{item.type === 'upload'}}">
-        <view class="label"><FormLabel item="{{item}}" /></view>
+        <view class="label">
+          <FormLabel item="{{item}}" />
+        </view>
         <Upload name="{{item.name}}" uploadText="{{item.uploadText || ''}}" value="{{item.value}}" bind:change="bindUploadChange" count="{{item.count || 1}}" />
       </view>
       <view wx:if="{{item.des || item.template}}" class="desc">
@@ -63,11 +72,12 @@
         <view wx:if="{{item.template}}" data-template="{{item.template}}" bindtap="handleShowTemplate" class="template" hover-class="template-hover">查看示例</view>
       </view>
     </view>
-
-    <view class="form-submit-wrapper" wx:if="{{!disableButton}}">
-      <my-button title="提交" loading="{{loading}}" form-type="submit" />
-    </view>
-  </form>
-</view>
+  </view>
+  <view class="form-submit-container form-submit-bottom"><view class="button">提交</view></view>
+  <cover-view class="form-submit-container">
+    <cover-view class="button" hover-class="button-hover" bindtap="submit">
+      {{loading ? '加载中,请稍后...' : '提交'}}</cover-view>
+  </cover-view>
+</form>
 
 <ShowImg wx:if="{{showImg}}" url="{{showImg}}" bind:click="handleHideShowTemplate" />
