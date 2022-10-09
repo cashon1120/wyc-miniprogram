@@ -1,7 +1,7 @@
 <Step steps="{{steps}}" stepIndex="{{stepIndex}}" />
 
 <!--第一步-->
-<view wx:if="{{stepIndex === 0}}">
+<block wx:if="{{stepIndex === 0}}">
   <view class="uploadFormItem line">
     <view class="label">半身照</view>
     <view class="body-photo">
@@ -45,10 +45,10 @@
   <FormInput item="{{formItem.driverName}}" bind:change="handleFormChange" />
   <FormInput item="{{formItem.idCard}}" bind:change="handleFormChange" />
   <FormInput item="{{formItem.phone}}" bind:change="handleFormChange" />
-</view>
+</block>
 
 <!--第二步-->
-<view wx:if="{{stepIndex === 1}}">
+<block wx:if="{{stepIndex === 1}}">
   <view class="uploadFormItem">
     <view class="label">驾驶证</view>
     <view class="driver-photo">
@@ -59,10 +59,10 @@
     </view>
   </view>
   <Tips text="上传驾驶证，确保图片清晰，四角完整" />
-</view>
+</block>
 
 <!--第三步-->
-<view wx:if="{{stepIndex === 2}}">
+<block wx:if="{{stepIndex === 2}}">
   <view class="uploadFormItem">
     <view class="label">居住证</view>
     <view class="driver-photo">
@@ -75,7 +75,7 @@
     <FormLabel item="{{formItem.otherCertificateList}}" disableShowRequire="{{true}}" />
     <Upload name="otherCertificateList" value="{{formItem.otherCertificateList.value}}" bind:change="bindUploadChange" count="{{formItem.otherCertificateList.count || 1}}" />
   </view>
-</view>
+</block>
 
 <view class="step-button-wrapper">
   <MyButton title="{{stepIndex <= 1 ? '下一步' : '提交'}}" bind:click="handleNext" />

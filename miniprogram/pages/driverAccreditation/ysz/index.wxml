@@ -21,7 +21,7 @@
   <FormInput item="{{formItem.phone}}" bind:change="handleFormChange" />
 </block>
 
-<!--第三步-->
+<!--第二步-->
 <block wx:if="{{stepIndex === 1}}">
   <view class="uploadFormItem">
     <view class="label">行驶证</view>
@@ -34,10 +34,9 @@
   </view>
   <Tips text="上传驾驶证，确保图片清晰，四角完整" />
   <FormInput item="{{formItem.plateNumber}}" bind:change="handleFormChange" />
-
 </block>
 
-<!--第四步-->
+<!--第三步-->
 <block wx:if="{{stepIndex === 2}}">
   <view class="uploadFormItem line">
     <view class="label">登记证书</view>
