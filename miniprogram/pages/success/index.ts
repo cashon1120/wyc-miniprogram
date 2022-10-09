@@ -14,8 +14,6 @@ Page({
   },
 
   handleClick(){
-    wx.navigateTo({
-      url: `/pages/${this.data.page}`
-    })
+    wx.navigateBack()
   }
 })

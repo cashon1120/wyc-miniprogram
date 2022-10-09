@@ -18,7 +18,7 @@
     "pages/meeting/driver/index",
     "pages/meeting/user/index",
     "pages/sqpay/index",
-    "pages/sucess/index",
+    "pages/success/index",
     "pages/getUserInfo/index",
     "pages/driverAccreditation/detail/index"
   ],

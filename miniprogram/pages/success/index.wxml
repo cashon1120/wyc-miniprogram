@@ -1,7 +1,7 @@
 <view class="wrapper">
   <image src="/images/icon_success.png" class="image" />
   <view class="h1">提交成功</view>
-  信息提交成功，请耐心 等待审核。
+  信息提交成功，请耐心等待审核！
 </view>
 <view class="button-wrapper">
   <MyButton title="确定" bind:click="handleClick" />
