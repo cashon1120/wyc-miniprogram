@@ -7,6 +7,33 @@
 .avatar{
   text-align: center;
   margin-top: 50rpx;
+  position: relative;
+  padding-bottom: 100rpx;
+  .upload-state{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30rpx;
+    opacity: .5;
+    font-size: 24rpx;
+  }
+  .avatar-wrapper{
+    width: 150rpx;
+    height: 150rpx;
+    position: relative;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: auto;
+    .progress{
+      position: absolute;
+      left: 0;
+      bottom: 50%;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255,255,255, .5);
+      transition: all .1s;
+    }
+  }
   button{
     width: 150rpx;
     height: 150rpx;
@@ -21,7 +48,6 @@
   }
 }
 .list{
-  margin-top: 80rpx;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;

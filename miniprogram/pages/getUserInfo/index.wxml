@@ -1,10 +1,15 @@
 <form bindsubmit="handleSubmit">
   <view class="info">请设置您的头像和昵称</view>
   <view class="avatar">
-    <button open-type="chooseAvatar" bindchooseavatar="handleChooseAvatar">
-      <image src="{{avatarUrl}}" mode="widthFix" />
-    </button>
+    <view class="avatar-wrapper">
+      <button open-type="chooseAvatar" bindchooseavatar="handleChooseAvatar">
+        <image src="{{avatarUrl}}" mode="widthFix" />
+      </button>
+      <view wx:if="{{progress > 0 && progress < 100}}" class="progress" style="bottom: {{progress + '%'}}" />
+    </view>
+    <view wx:if="{{progress > 0 && progress < 100}}" class="upload-state">上传中，请稍后...</view>
     <input value="{{realAvatarUrl}}" style="display: none;" name="avatarUrl" />
+
   </view>
   <view class="list">
     <view class="label">昵称</view>

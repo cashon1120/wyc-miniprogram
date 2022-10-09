@@ -5,26 +5,28 @@ Page({
   data: {
     avatarUrl: '/images/avatar.png',
     realAvatarUrl: '',
+    progress: 0
   },
 
-  onLoad(){
+  onLoad() {
     const userInfo = wx.getStorageSync('userInfo')
-    if(userInfo){
-      const {nickName, avatarUrl} = userInfo
+    if (userInfo) {
+      const { nickName, avatarUrl } = userInfo
       this.setData({
         avatarUrl,
         nickName,
         realAvatarUrl: avatarUrl
       })
-    } 
+    }
   },
 
   handleChooseAvatar(e: any) {
     const filePath = e.detail.avatarUrl
     this.setData({
-      avatarUrl: filePath
+      avatarUrl: filePath,
+      progress: 0
     })
-    wx.uploadFile({
+    const uploadTask = wx.uploadFile({
       url: `${API_URL}rentUser/upload`,
       filePath,
       name: 'file',
@@ -40,6 +42,11 @@ Page({
           })
         }
       },
+    })
+    uploadTask.onProgressUpdate((res: any) => {
+      this.setData({
+        progress: res.progress
+      })
     })
   },
   handleSubmit(e: any) {
@@ -69,11 +76,11 @@ Page({
           success: () => {
             const url = app.globalData.tempUrl
             app.globalData.tempUrl = ''
-            if(url){
+            if (url) {
               wx.redirectTo({
                 url: '/' + url
               })
-            }else{
+            } else {
               wx.navigateBack()
             }
           }

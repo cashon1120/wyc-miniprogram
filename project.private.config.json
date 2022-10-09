@@ -126,6 +126,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/getUserInfo/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
