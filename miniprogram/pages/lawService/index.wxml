@@ -1,15 +1,15 @@
 <view class="title">法律服务</view>
 <image src="/images/law_pic.png" mode="widthFix" class="banner" />
 <view class="h1">一键拨打，开启咨询</view>
-<view class="call-text" bindtap="handleMakePhoneCall" hover-class="hover-class">
+<view class="call-text" bindtap="toggleShow" hover-class="hover-class">
   <view>
     <image src="/images/icon_phone.png" mode="widthFix" />
-    <view style="flex: 1; white-space: nowrap;">028-61301149</view>
+    <view style="flex: 1; white-space: nowrap;">电话咨询</view>
   </view>
 </view>
 <view class="flex-box">
   <view class="label">服务时间:</view>
-  <view class="content">工作日8:39 - 12:00, 14:00-18:00</view>
+  <view class="content">工作日 9:00 - 22:00</view>
 </view>
 <view class="flex-box">
   <view class="label">服务内容:</view>
@@ -18,4 +18,13 @@
 <view class="flex-box">
   <view class="label">收费标准:</view>
   <view class="content">拨打仅产生正常通讯费，咨询免费</view>
+</view>
+
+<view class="modal" wx:if="{{showPhoneCall}}">
+  <view class="mask" bindtap="toggleShow"/>
+  <view class="content">
+    <view class="item" hover-class="hover-class" data-value="02861301149" bindtap="handleMakePhoneCall">028-61301149</view>
+    <view class="item" hover-class="hover-class" data-value="15982082925" bindtap="handleMakePhoneCall">15982082925</view>
+    <view class="cancel" hover-class="hover-class" bindtap="toggleShow">取消</view>
+  </view>
 </view>

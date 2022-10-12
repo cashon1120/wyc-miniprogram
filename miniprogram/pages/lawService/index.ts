@@ -1,7 +1,18 @@
 Page({
-  handleMakePhoneCall(){
+  data: {
+    showPhoneCall: false
+  },
+
+  toggleShow(){
+    this.setData({
+      showPhoneCall: !this.data.showPhoneCall
+    })
+  },
+
+  handleMakePhoneCall(e: any){
+    const {value} = e.currentTarget.dataset
     wx.makePhoneCall({
-      phoneNumber: '028-61301149'
+      phoneNumber: value
     })
   }
 })
