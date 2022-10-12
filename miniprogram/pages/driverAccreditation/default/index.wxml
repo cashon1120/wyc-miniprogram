@@ -1,5 +1,5 @@
 <block wx:if="{{loaded}}">
-  <view wx:if="{{showData1}}" class="list" data-item="{{data1}}" hover-class="hover-class" bindtap="handleNavigateToDetail">
+  <view wx:if="{{showData1}}" class="list" data-item="{{data1}}" hover-class="hover-class" bindtap="handleNavigateToDetail" data-type="renzheng">
     <view class="content">
       <view class="title">我的人证</view>
       <view>{{data1.driverName}} {{data1.phone}}</view>
@@ -8,7 +8,7 @@
     <Status status="{{data1.status}}" />
   </view>
 
-  <view wx:if="{{showData2}}" class="list" data-item="{{data2}}" hover-class="hover-class" bindtap="handleNavigateToDetail">
+  <view wx:if="{{showData2}}" class="list" data-item="{{data2}}" hover-class="hover-class" bindtap="handleNavigateToDetail"  data-type="chezheng">
     <view class="content">
       <view class="title">我的车证</view>
       <view>{{data2.plateNumber}} / {{data2.brand}} {{data2.model}}</view>

@@ -7,6 +7,7 @@ const statusEnum: any = {
   3: '已撤销',
   4: '未通过',
 }
+let type = ''
 Page({
 
   /**
@@ -15,12 +16,14 @@ Page({
   data: {
     data: {}
   },
-  onLoad() {
+  onLoad(options: any) {
     const data = app.globalData.detailData
     this.setData({
       data
     })
-    const title = data.brand ? '我的车证' : '我的人证'
+    type = options.type
+    console.log(type)
+    const title = type === 'chezheng' ? '我的车证' : '我的人证'
     const status = statusEnum[data.status]
     wx.setNavigationBarTitle({
       title: `${title}(${status})`,
@@ -33,7 +36,7 @@ Page({
       content: '确定要撤销当前申请吗？',
       success: (res: any) => {
         if (res.confirm) {
-          const API = app.globalData.detailData.brand ? CancelDriverAccreditationTransport : CancelDriverAccreditation
+          const API = type === 'chezheng' ? CancelDriverAccreditationTransport : CancelDriverAccreditation
           API({ rentUserId: wx.getStorageSync('userID') }).then((res: any) => {
             if (res.code === 0) {
               switch (res.data.code) {

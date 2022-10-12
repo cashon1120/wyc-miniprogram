@@ -93,19 +93,17 @@ export const DriverAccreditation = (data: any) => {
   })
 }
 
-export const GetDriverAccreditation = (data: any) => {
+export const GetDriverAccreditation = () => {
   return request({
     url: 'rentOnlineDriverLicenceApplication/get',
     method: 'POST',
-    data
   })
 }
 
-export const CancelDriverAccreditation = (data: any) => {
+export const CancelDriverAccreditation = () => {
   return request({
     url: 'rentOnlineDriverLicenceApplication/cancel',
     method: 'POST',
-    data
   })
 }
 

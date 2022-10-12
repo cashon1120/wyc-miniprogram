@@ -16,7 +16,7 @@ Page({
     this.getData()
   },
   getData() {
-    GetDriverAccreditation({ rentUserId: wx.getStorageSync('userID') }).then((res: any) => {
+    GetDriverAccreditation().then((res: any) => {
       if (res.code === 0 && res.data) {
         res.data.createTime = formatTime(new Date(res.data.createTime * 1000))
         this.setData({
@@ -28,7 +28,7 @@ Page({
       this.checkLoadState()
     })
 
-    GetDriverAccreditationTransport({ rentUserId: wx.getStorageSync('userID') }).then((res: any) => {
+    GetDriverAccreditationTransport({}).then((res: any) => {
       if (res.code === 0 && res.data) {
         res.data.createTime = formatTime(new Date(res.data.createTime * 1000))
         this.setData({
@@ -60,7 +60,7 @@ Page({
   handleNavigateToDetail(e: any) {
     app.globalData.detailData = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '/pages/driverAccreditation/detail/index'
+      url: '/pages/driverAccreditation/detail/index?type=' + e.currentTarget.dataset.type
     })
   }
 })
