@@ -5,11 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    page: ''
+    info: '',
+
   },
   onLoad(options: any){
     this.setData({
-      page: options.page
+      info: options.info || '信息提交成功，请等待处理'
     })
   },
 

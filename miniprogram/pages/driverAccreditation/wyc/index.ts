@@ -77,7 +77,7 @@ Page<any, any>({
         switch (res.data.code) {
           case 0:
             wx.redirectTo({
-              url: '/pages/success/index'
+              url: '/pages/success/index?info=信息提交成功，请耐心等待审核！'
             })
             break;
           case 1:

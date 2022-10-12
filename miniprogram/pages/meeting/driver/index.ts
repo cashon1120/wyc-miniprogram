@@ -34,10 +34,8 @@ Page({
       if (res.code === 0) {
         switch (res.data.code) {
           case 0:
-            wx.navigateBack()
-            wx.showToast({
-              title: '操作成功',
-              icon: 'none'
+            wx.redirectTo({
+              url: '/pages/success/index'
             })
             break;
           case 1:
