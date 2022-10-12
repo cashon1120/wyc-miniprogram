@@ -17,7 +17,7 @@ Page({
       { url: 'rentalCars', src: '../../images/icon_3.png', label: '租车' },
       { url: '', src: '../../images/icon_4.png', label: '租房' },
       { url: 'lawService', src: '../../images/icon_6.png', label: '法律服务' },
-      // { url: 'driverAccreditation/default', src: '../../images/icon_3.png', label: '司机办证' },
+      { url: 'driverAccreditation/default', src: '../../images/icon_3.png', label: '司机办证' },
       { url: 'meeting/default', src: '../../images/icon_8.png', label: '会议会展' },
       { url: '', src: '../../images/icon_9.png', label: '生活服务' },
       // { url: 'education', src: '../../images/icon_1.png', label: '安全教育' },

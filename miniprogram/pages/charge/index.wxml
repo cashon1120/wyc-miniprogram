@@ -1,1 +1,0 @@
-<GetPhone wx:if="{{showPhone}}" bind:callback="handleGetPhoneCallback" />

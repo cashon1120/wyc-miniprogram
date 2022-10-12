@@ -1,5 +1,5 @@
 import { GetLoginUrl } from '../../api/index'
-import { checkUserPhone } from '../../utils/util'
+import { getUserInfo } from '../../utils/util'
 
 const app = getApp();
 
@@ -13,39 +13,31 @@ Page<any, any>({
     startAddress: '正在获取地址信息...',
     serviceType: [],
     showModal: false,
-    showPhone: false
   },
 
-  onLoad() {
-    const phone = checkUserPhone()
-    if (phone) {
-      this.handleGetPhoneCallback()
-    }else{
-      this.setData({
-        showPhone: true
+  onShow(){
+    const userInfo = getUserInfo()
+    if(userInfo){
+      wx.getLocation({
+        type: 'gcj02',
+        success: (res: any) => {
+          const { latitude, longitude } = res
+          const params = {
+            userPhone: userInfo.phone,
+            startLat: latitude,
+            startLng: longitude,
+          }
+          console.log(params)
+          GetLoginUrl(params).then((res: any) => {
+            if (res.code === 0) {
+              app.globalData.toUrl = res.data
+              wx.redirectTo({
+                url: '/pages/webView/index'
+              })
+            }
+          })
+        }
       })
     }
   },
-
-  handleGetPhoneCallback(){
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res: any) => {
-        const { latitude, longitude } = res
-        const params = {
-          userPhone: checkUserPhone(),
-          startLat: latitude,
-          startLng: longitude,
-        }
-        GetLoginUrl(params).then((res: any) => {
-          if (res.code === 0) {
-            app.globalData.toUrl = res.data
-            wx.redirectTo({
-              url: '/pages/webView/index'
-            })
-          }
-        })
-      }
-    })
-  }
 })

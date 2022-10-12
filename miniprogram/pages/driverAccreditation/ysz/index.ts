@@ -15,7 +15,7 @@ Page<any, any>({
       identityCardFont: { label: '身份证', inline: true, name: 'identityCardFont', value: '', defaultValue: '/images/idcard_1.png', type: 'upload', uploadText: '上传人像面', required: { message: '请上传身份证人像面' }, step: 0, uploadType: 'idCard' },
       identityCardBack: { label: '', inline: true, name: 'identityCardBack', value: '', defaultValue: '/images/idcard_2.png', type: 'upload', uploadText: '上传副页', required: { message: '请上身份证国徽面' }, step: 0 },
       driverName: { label: '您的姓名', name: 'driverName', value: '', placeholder: '请输入您的姓名', type: 'input', required: { message: '请输入您的姓名' }, step: 0 },
-      idCard: { label: '您的身份证号', name: 'idCard', value: '', placeholder: '请输入您的身份证号', type: 'input', required: { message: '请输入您的身份证号' }, step: 0 },
+      idCard: { label: '您的身份证号', name: 'idCard', value: '', maxLength: 18, placeholder: '请输入您的身份证号', type: 'input', required: { message: '请输入您的身份证号' }, step: 0 },
       phone: { label: '您的手机号', maxLength: 11, name: 'phone', value: '', placeholder: '请输入您的手机号', type: 'input', inputType: 'number', required: { message: '请输入您的手机号' }, validate: { message: '请输入正确的11位手机号', exec: (phone: string) => /^1\d{10}$/.test(phone) }, step: 0 },
 
       drivingLicenceFont: { label: '行驶证', inline: true, name: 'drivingLicenceFont', value: '', defaultValue: '/images/drivecard_1.png', type: 'upload', required: { message: '请上传行驶证正页' }, step: 1, uploadType: 'drivingLicence' },

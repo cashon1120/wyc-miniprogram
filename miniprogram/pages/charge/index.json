@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "GetPhone": "../../components/getPhone"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "充电"
 }
