@@ -4,7 +4,6 @@ const app = getApp()
 let getDataCount = 0
 Page({
   data: {
-    showPhone: false,
     data1: null,
     showData1: false,
     data2: null,
@@ -15,6 +14,7 @@ Page({
   onShow() {
     this.getData()
   },
+  
   getData() {
     GetDriverAccreditation().then((res: any) => {
       if (res.code === 0 && res.data) {

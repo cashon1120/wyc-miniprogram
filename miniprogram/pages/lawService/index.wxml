@@ -19,11 +19,3 @@
   <view class="label">收费标准:</view>
   <view class="content">拨打仅产生正常通讯费，咨询免费</view>
 </view>
-
-<view class="modal" wx:if="{{showPhoneCall}}">
-  <view class="content">
-    <view class="item" hover-class="hover-class" data-value="028-61301149" bindtap="handleMakePhoneCall">联系商家: 028-61301149</view>
-    <view class="item" hover-class="hover-class" data-value="15982082925" bindtap="handleMakePhoneCall">联系商家: 15982082925</view>
-    <view class="cancel" hover-class="hover-class" bindtap="toggleShow">取消</view>
-  </view>
-</view>
