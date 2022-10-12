@@ -1,4 +1,4 @@
 <view class="wrapper">
-  <ListItem label="一般用户" url="/pages/meeting/user/index" />
-  <ListItem label="司机用户" url="/pages/meeting/driver/index" />
+  <ListItem label="用户" url="/pages/meeting/user/index" />
+  <ListItem label="司机" url="/pages/meeting/driver/index" />
 </view>
